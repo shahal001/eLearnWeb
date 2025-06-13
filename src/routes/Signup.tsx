@@ -1,7 +1,7 @@
 import React from "react";
 import signupimg from "../assets/images/signupimg.png";
 import googleIcon from "../assets/images/google.png";
-import logo from "../assets/images/logofAcadamix.png";
+import logo from "../assets/images/logoOfAcdmx.png";
 
 const Signup: React.FC = () => {
   return (

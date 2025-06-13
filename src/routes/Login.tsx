@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import loginImage from "../assets/images/studentIMage.png";
 import googleIcon from "../assets/images/google.png";
-import logo from "../assets/images/logofAcadamix.png";
+import logo from "../assets/images/logoOfAcdmx.png";
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState("");

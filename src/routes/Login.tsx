@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import loginImage from "../assets/images/studentIMage.png";
 import googleIcon from "../assets/images/google.png";
+import logo from "../assets/images/logoOfAcdmx.png";
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -17,7 +18,7 @@ const Login: React.FC = () => {
     <div className="flex h-screen w-screen items-center justify-center bg-gradient-to-r from-gray-200 to-blue-100">
       <div className="flex flex-col md:flex-row w-full md:w-3/4 h-full md:h-[85%] rounded-3xl shadow-lg overflow-hidden">
         {/* Left Side: Illustration and Message */}
-        <div className="flex-1 flex flex-col items-center justify-center p-4 bg-green-100">
+        <div className="hidden md:flex flex-1 flex-col items-center justify-center p-4 bg-green-100">
           <img
             src={loginImage}
             alt="Login Illustration"
@@ -37,9 +38,9 @@ const Login: React.FC = () => {
           {/* Logo Image */}
           <div className="mb-6">
             <img
-              src={loginImage}
+              src={logo}
               alt="ClassRoom Logo"
-              className="w-16 h-16 md:w-20 md:h-20 rounded-full shadow mx-auto"
+              className="w-20 h-20 md:w-20 md:h-20 rounded-full shadow mx-auto"
             />
           </div>
 
@@ -128,7 +129,7 @@ const Login: React.FC = () => {
             <div className="mt-6 text-center">
               <span className="text-gray-600">Are you new? </span>
               <a
-                href="#"
+                href="/signup"
                 className="text-blue-500 font-semibold hover:underline"
               >
                 Create an account

@@ -44,8 +44,7 @@ const Home: React.FC = () => {
         </div>
       </div>
       {/* section2 */}
-      <div className=" px-5 md:px-10 lg:px-20 py-10 ">
-        {/* sec 1.1 */}
+      <div className=" px-5 md:px-10 lg:px-20 py-5  ">
         <div>
           <span className="font-semibold text-3xl block">
             Ready to reimagine your career?
@@ -55,30 +54,115 @@ const Home: React.FC = () => {
             Accelerators.
           </span>
         </div>
-        {/* sec 1.2 */}
-        <div className="mt-6">
-          <div className="p-2 border rounded-lg">
+      </div>
+      {/* section 3 */}
+      <div className=" px-5 md:px-10 lg:px-20 grid grid-cols-1 md:grid-cols-3 gap-4">
+        {/* 1 */}
+        <div className="p-2 border rounded-2xl flex flex-col h-full">
+          <div className="w-full aspect-[4/3] overflow-hidden rounded-xl">
             <img
               src="https://www.siecindia.com/uploads/blog/blog_36b4e5301c6c2dcae787b510a0b942e3_1737112538data-science-online-courses.jpg"
               alt="career accelerator"
-              className="rounded-md"
+              className="object-cover w-full h-full"
             />
-            <h1 className="font-bold text-lg">Full Stack Web Developer</h1>
-            <div className="flex gap-1 mt-2 flex-row flex-wrap">
-              <div className="flex items-center border border-gray-300 rounded px-2 py-1 w-fit text-xs">
-                <IoIosStar color="#FFD700" className="mr-1" size={14} />
-                <span className="whitespace-nowrap">4.5</span>
-              </div>
-              <div className="flex items-center border border-gray-300 rounded px-2 py-1 text-xs w-fit">
-                <span className="whitespace-nowrap">12K+ Enrolled</span>
-              </div>
-              <div className="flex items-center border border-gray-300 rounded px-2 py-1 w-fit text-xs">
-                <span className="whitespace-nowrap">108.5 total hours</span>
-              </div>
+          </div>
+          <h1 className="font-bold text-lg mt-2">Full Stack Web Developer</h1>
+          <div className="flex gap-1 mt-2 flex-row flex-wrap">
+            <div className="flex items-center border border-gray-300 rounded px-2 py-1 w-fit text-xs">
+              <IoIosStar color="#FFD700" className="mr-1" size={14} />
+              <span className="whitespace-nowrap">4.5</span>
+            </div>
+            <div className="flex items-center border border-gray-300 rounded px-2 py-1 text-xs w-fit">
+              <span className="whitespace-nowrap">12K+ Enrolled</span>
+            </div>
+            <div className="flex items-center border border-gray-300 rounded px-2 py-1 w-fit text-xs">
+              <span className="whitespace-nowrap">108.5 total hours</span>
+            </div>
+          </div>
+        </div>
+        {/* 2 */}
+        <div className="p-2 border rounded-2xl flex flex-col h-full">
+          <div className="w-full aspect-[4/3] overflow-hidden rounded-xl">
+            <img
+              src="https://www.siecindia.com/uploads/blog/blog_36b4e5301c6c2dcae787b510a0b942e3_1737112538data-science-online-courses.jpg"
+              alt="career accelerator"
+              className="object-cover w-full h-full"
+            />
+          </div>
+          <h1 className="font-bold text-lg mt-2">Full Stack Web Developer</h1>
+          <div className="flex gap-1 mt-2 flex-row flex-wrap">
+            <div className="flex items-center border border-gray-300 rounded px-2 py-1 w-fit text-xs">
+              <IoIosStar color="#FFD700" className="mr-1" size={14} />
+              <span className="whitespace-nowrap">4.5</span>
+            </div>
+            <div className="flex items-center border border-gray-300 rounded px-2 py-1 text-xs w-fit">
+              <span className="whitespace-nowrap">12K+ Enrolled</span>
+            </div>
+            <div className="flex items-center border border-gray-300 rounded px-2 py-1 w-fit text-xs">
+              <span className="whitespace-nowrap">108.5 total hours</span>
+            </div>
+          </div>
+        </div>
+        {/* 3 */}
+        <div className="p-2 border rounded-2xl flex flex-col h-full">
+          <div className="w-full aspect-[4/3] overflow-hidden rounded-xl">
+            <img
+              src="https://www.siecindia.com/uploads/blog/blog_36b4e5301c6c2dcae787b510a0b942e3_1737112538data-science-online-courses.jpg"
+              alt="career accelerator"
+              className="object-cover w-full h-full"
+            />
+          </div>
+          <h1 className="font-bold text-lg mt-2">Full Stack Web Developer</h1>
+          <div className="flex gap-1 mt-2 flex-row flex-wrap">
+            <div className="flex items-center border border-gray-300 rounded px-2 py-1 w-fit text-xs">
+              <IoIosStar color="#FFD700" className="mr-1" size={14} />
+              <span className="whitespace-nowrap">4.5</span>
+            </div>
+            <div className="flex items-center border border-gray-300 rounded px-2 py-1 text-xs w-fit">
+              <span className="whitespace-nowrap">12K+ Enrolled</span>
+            </div>
+            <div className="flex items-center border border-gray-300 rounded px-2 py-1 w-fit text-xs">
+              <span className="whitespace-nowrap">108.5 total hours</span>
             </div>
           </div>
         </div>
       </div>
+      {/* section 4 */}
+      <div className=" px-5 md:px-10 lg:px-20 py-5  ">
+        <div>
+          <span className="font-semibold text-3xl block">
+            All the skills you need in one place
+          </span>
+          <span className="block text-gray-500 font-medium text-md mt-2">
+            Master skills, gain experience, and accelerate your career with
+            expert-led courses.
+          </span>
+        </div>
+      </div>
+      {/* section line 5 */}
+      <div className="px-5 md:px-10 lg:px-20 ">
+        <div className="w-full border-t border-gray-300 mb-3"></div>
+        <div className="font-semibold text-lg">Data Science</div>
+      </div>
+      {/* section scroller  6 */}
+      <div className="px-5 md:px-10 lg:px-20 py-5 overflow-x-auto">
+        <div className="flex flex-row gap-3 w-max">
+          <div className="p-4 bg-gray-500 rounded-full text-white min-w-max">
+            <span className="block">AI / ML</span>
+          </div>
+          <div className="p-4 bg-gray-500 rounded-full text-white min-w-max">
+            <span className="block">Data Science</span>
+          </div>
+          <div className="p-4 bg-gray-500 rounded-full text-white min-w-max">
+            <span className="block">Fullstack</span>
+          </div>
+          <div className="p-4 bg-gray-500 rounded-full text-white min-w-max">
+            <span className="block">Big Data</span>
+          </div>
+        </div>
+      </div>
+      {/* card 2/ 7 */}
+      <div className="px-5 md:px-10 lg:px-20 "></div>
     </div>
   );
 };

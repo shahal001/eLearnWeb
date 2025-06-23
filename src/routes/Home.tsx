@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import logo from "../assets/images/logoOfAcdmx.png";
 import student from "../assets/images/studentImg.png";
+import stepImg from "../assets/images/stepimage.png";
 import { IoIosStar } from "react-icons/io";
 import { FiTarget } from "react-icons/fi";
 import { PiCertificateLight } from "react-icons/pi";
@@ -1329,6 +1330,26 @@ const Home: React.FC = () => {
         </div>
       </div>
       {/* section 18 */}
+      <div className="px-5 pt-5 md:px-10 lg:px-20  ">
+        <div className="flex flex-row  items-center">
+          {/* section 1.1 */}
+          <div className=" space-y-4">
+            <h1 className="text-3xl font-semibold">AI for Business Leaders</h1>
+            <p>
+              Build an AI-habit for you and your team that builds hands-on
+              skills to help you lead effectively.
+            </p>
+            <button className="mt-4 border border-blue-600 text-blue-600 px-5 py-2 rounded-md font-semibold hover:bg-blue-50 active:scale-95 transition-all duration-150 flex items-center gap-2">
+              Start Learning <span className="text-lg">&rarr;</span>
+            </button>
+          </div>
+          {/* section 1.2 */}
+          <div>
+            <img src={stepImg} alt="noImage" />
+          </div>
+        </div>
+      </div>
+      {/* section 19 */}
       <footer className="bg-gray-900 text-gray-200 py-10 px-5 md:px-10 lg:px-20 mt-10">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:justify-between gap-8">
           {/* Logo and tagline */}

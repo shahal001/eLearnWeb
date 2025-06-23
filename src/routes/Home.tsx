@@ -9,6 +9,7 @@ import { FiStar } from "react-icons/fi";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { MdOutlinePersonOutline } from "react-icons/md";
 import { FaRegCheckCircle } from "react-icons/fa";
+import { RiDoubleQuotesL } from "react-icons/ri";
 
 const Home: React.FC = () => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -1018,7 +1019,7 @@ const Home: React.FC = () => {
         </div>
       </div>
       {/* section 16 */}
-      <div className="px-5 pt-5 md:px-10 lg:px-20 grid lg:grid-cols-3 gap-3 ">
+      <div className="px-5 pt-5 pb-5 md:px-10 lg:px-20 grid lg:grid-cols-3 gap-3 ">
         {/* section 1.1 */}
         <div className="border rounded-xl border-gray-400 overflow-hidden">
           <div className=" bg-blue-50 p-7">
@@ -1239,6 +1240,189 @@ const Home: React.FC = () => {
           )}
         </div>
       </div>
+      {/* section 17 */}
+      <div className="px-5 pt-5 md:px-10 lg:px-20 bg-blue-50  ">
+        {/* sec 1.1 */}
+        <div>
+          <h2 className="text-3xl font-semibold">
+            See what others are achieving through learning
+          </h2>
+        </div>
+        {/* sec 1.2 */}
+        <div className="flex flex-row gap-6 overflow-x-auto hide-scrollbar py-4">
+          <div className="bg-white p-10 rounded-lg space-y-8 max-w-96 min-w-[320px] flex-shrink-0">
+            <RiDoubleQuotesL className="text-2xl" />
+            <p>
+              Because of this course I was able to clear my two interviews...
+              Thanks for making such wonderful content.{" "}
+            </p>
+            <div>
+              <div className="flex flex-row items-center gap-2 mt-3">
+                <div className="bg-black w-10 h-10 flex items-center justify-center rounded-full">
+                  <h1 className="text-white text-base font-semibold">AV</h1>
+                </div>
+                <div>
+                  <h3 className="font-semibold">Aarav Bavir</h3>
+                  <p className="text-gray-500 text-sm">Software Engineer</p>
+                </div>
+              </div>
+            </div>
+            <div className="text-blue-600">Achieved dream job at TechCorp</div>
+          </div>
+          <div className="bg-white p-10 rounded-lg space-y-8 max-w-96 min-w-[320px] flex-shrink-0">
+            <RiDoubleQuotesL className="text-2xl" />
+            <p>
+              Because of this course I was able to clear my two interviews...
+              Thanks for making such wonderful content.{" "}
+            </p>
+            <div>
+              <div className="flex flex-row items-center gap-2 mt-3">
+                <div className="bg-black w-10 h-10 flex items-center justify-center rounded-full">
+                  <h1 className="text-white text-base font-semibold">AV</h1>
+                </div>
+                <div>
+                  <h3 className="font-semibold">Aarav Bavir</h3>
+                  <p className="text-gray-500 text-sm">Software Engineer</p>
+                </div>
+              </div>
+            </div>
+            <div className="text-blue-600">Achieved dream job at TechCorp</div>
+          </div>
+          <div className="bg-white p-10 rounded-lg space-y-8 max-w-96 min-w-[320px] flex-shrink-0">
+            <RiDoubleQuotesL className="text-2xl" />
+            <p>
+              Because of this course I was able to clear my two interviews...
+              Thanks for making such wonderful content.{" "}
+            </p>
+            <div>
+              <div className="flex flex-row items-center gap-2 mt-3">
+                <div className="bg-black w-10 h-10 flex items-center justify-center rounded-full">
+                  <h1 className="text-white text-base font-semibold">AV</h1>
+                </div>
+                <div>
+                  <h3 className="font-semibold">Aarav Bavir</h3>
+                  <p className="text-gray-500 text-sm">Software Engineer</p>
+                </div>
+              </div>
+            </div>
+            <div className="text-blue-600">Achieved dream job at TechCorp</div>
+          </div>
+          <div className="bg-white p-10 rounded-lg space-y-8 max-w-96 min-w-[320px] flex-shrink-0">
+            <RiDoubleQuotesL className="text-2xl" />
+            <p>
+              Because of this course I was able to clear my two interviews...
+              Thanks for making such wonderful content.{" "}
+            </p>
+            <div>
+              <div className="flex flex-row items-center gap-2 mt-3">
+                <div className="bg-black w-10 h-10 flex items-center justify-center rounded-full">
+                  <h1 className="text-white text-base font-semibold">AV</h1>
+                </div>
+                <div>
+                  <h3 className="font-semibold">Aarav Bavir</h3>
+                  <p className="text-gray-500 text-sm">Software Engineer</p>
+                </div>
+              </div>
+            </div>
+            <div className="text-blue-600">Achieved dream job at TechCorp</div>
+          </div>
+        </div>
+      </div>
+      {/* section 18 */}
+      <footer className="bg-gray-900 text-gray-200 py-10 px-5 md:px-10 lg:px-20 mt-10">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:justify-between gap-8">
+          {/* Logo and tagline */}
+          <div className="flex-1 mb-8 md:mb-0">
+            <img src={logo} alt="logo" className="h-10 mb-3" />
+            <p className="text-gray-400 text-sm">
+              Unlock your potential, one lesson at a time.
+            </p>
+          </div>
+          {/* Links */}
+          <div className="flex-1 grid grid-cols-2 md:grid-cols-3 gap-6">
+            <div>
+              <h3 className="font-semibold mb-2">Company</h3>
+              <ul className="space-y-1 text-sm">
+                <li>
+                  <a href="#" className="hover:text-blue-400 transition">
+                    About
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-blue-400 transition">
+                    Careers
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-blue-400 transition">
+                    Blog
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-semibold mb-2">Support</h3>
+              <ul className="space-y-1 text-sm">
+                <li>
+                  <a href="#" className="hover:text-blue-400 transition">
+                    Help Center
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-blue-400 transition">
+                    Contact Us
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-blue-400 transition">
+                    FAQs
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-semibold mb-2">Legal</h3>
+              <ul className="space-y-1 text-sm">
+                <li>
+                  <a href="#" className="hover:text-blue-400 transition">
+                    Terms of Service
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-blue-400 transition">
+                    Privacy Policy
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-blue-400 transition">
+                    Cookie Policy
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          {/* Newsletter */}
+          <div className="flex-1">
+            <h3 className="font-semibold mb-2">Subscribe to our newsletter</h3>
+            <form className="flex flex-col sm:flex-row gap-2">
+              <input
+                type="email"
+                placeholder="Your email"
+                className="px-3 py-2 rounded bg-gray-800 text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+              <button
+                type="submit"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded font-semibold transition"
+              >
+                Subscribe
+              </button>
+            </form>
+          </div>
+        </div>
+        <div className="border-t border-gray-700 mt-8 pt-6 text-center text-xs text-gray-500">
+          © {new Date().getFullYear()} Acdmx eLearn. All rights reserved.
+        </div>
+      </footer>
     </div>
   );
 };

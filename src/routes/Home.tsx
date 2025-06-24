@@ -11,6 +11,7 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 import { MdOutlinePersonOutline } from "react-icons/md";
 import { FaRegCheckCircle } from "react-icons/fa";
 import { RiDoubleQuotesL } from "react-icons/ri";
+import FullBorderCard from "../components/FullBorderCard";
 
 const Home: React.FC = () => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -48,6 +49,10 @@ const Home: React.FC = () => {
           >
             or ₹25,000/year with 14-day money-back guarantee
           </a>
+          <p>
+            open your mind with all potential of focus and study for your future
+            along with Acadamix .
+          </p>
         </div>
         {/* Image */}
         <div className="w-full md:w-1/3 flex justify-center mt-6 md:mt-0 order-2 md:order-1">
@@ -70,77 +75,11 @@ const Home: React.FC = () => {
           </span>
         </div>
       </div>
-      {/* section 3 */}
-      <div className=" px-5 md:px-10 lg:px-20 grid grid-cols-1 md:grid-cols-3 gap-4">
-        {/* 1 */}
-        <div className="p-2 border rounded-2xl flex flex-col h-full">
-          <div className="w-full aspect-[4/3] overflow-hidden rounded-xl">
-            <img
-              src="https://www.siecindia.com/uploads/blog/blog_36b4e5301c6c2dcae787b510a0b942e3_1737112538data-science-online-courses.jpg"
-              alt="career accelerator"
-              className="object-cover w-full h-full"
-            />
-          </div>
-          <h1 className="font-bold text-lg mt-2">Full Stack Web Developer</h1>
-          <div className="flex gap-1 mt-2 flex-row flex-wrap">
-            <div className="flex items-center border border-gray-300 rounded px-2 py-1 w-fit text-xs">
-              <IoIosStar color="#FFD700" className="mr-1" size={14} />
-              <span className="whitespace-nowrap">4.5</span>
-            </div>
-            <div className="flex items-center border border-gray-300 rounded px-2 py-1 text-xs w-fit">
-              <span className="whitespace-nowrap">12K+ Enrolled</span>
-            </div>
-            <div className="flex items-center border border-gray-300 rounded px-2 py-1 w-fit text-xs">
-              <span className="whitespace-nowrap">108.5 total hours</span>
-            </div>
-          </div>
-        </div>
-        {/* 2 */}
-        <div className="p-2 border rounded-2xl flex flex-col h-full">
-          <div className="w-full aspect-[4/3] overflow-hidden rounded-xl">
-            <img
-              src="https://www.siecindia.com/uploads/blog/blog_36b4e5301c6c2dcae787b510a0b942e3_1737112538data-science-online-courses.jpg"
-              alt="career accelerator"
-              className="object-cover w-full h-full"
-            />
-          </div>
-          <h1 className="font-bold text-lg mt-2">Full Stack Web Developer</h1>
-          <div className="flex gap-1 mt-2 flex-row flex-wrap">
-            <div className="flex items-center border border-gray-300 rounded px-2 py-1 w-fit text-xs">
-              <IoIosStar color="#FFD700" className="mr-1" size={14} />
-              <span className="whitespace-nowrap">4.5</span>
-            </div>
-            <div className="flex items-center border border-gray-300 rounded px-2 py-1 text-xs w-fit">
-              <span className="whitespace-nowrap">12K+ Enrolled</span>
-            </div>
-            <div className="flex items-center border border-gray-300 rounded px-2 py-1 w-fit text-xs">
-              <span className="whitespace-nowrap">108.5 total hours</span>
-            </div>
-          </div>
-        </div>
-        {/* 3 */}
-        <div className="p-2 border rounded-2xl flex flex-col h-full">
-          <div className="w-full aspect-[4/3] overflow-hidden rounded-xl">
-            <img
-              src="https://www.siecindia.com/uploads/blog/blog_36b4e5301c6c2dcae787b510a0b942e3_1737112538data-science-online-courses.jpg"
-              alt="career accelerator"
-              className="object-cover w-full h-full"
-            />
-          </div>
-          <h1 className="font-bold text-lg mt-2">Full Stack Web Developer</h1>
-          <div className="flex gap-1 mt-2 flex-row flex-wrap">
-            <div className="flex items-center border border-gray-300 rounded px-2 py-1 w-fit text-xs">
-              <IoIosStar color="#FFD700" className="mr-1" size={14} />
-              <span className="whitespace-nowrap">4.5</span>
-            </div>
-            <div className="flex items-center border border-gray-300 rounded px-2 py-1 text-xs w-fit">
-              <span className="whitespace-nowrap">12K+ Enrolled</span>
-            </div>
-            <div className="flex items-center border border-gray-300 rounded px-2 py-1 w-fit text-xs">
-              <span className="whitespace-nowrap">108.5 total hours</span>
-            </div>
-          </div>
-        </div>
+      {/* card1 3 */}
+      <div className=" px-5 md:px-10 lg:px-15 grid grid-cols-1 md:grid-cols-3 gap-4">
+        <FullBorderCard />
+        <FullBorderCard />
+        <FullBorderCard />
       </div>
       {/* section 4 */}
       <div className=" px-5 md:px-10 lg:px-20 py-5  ">

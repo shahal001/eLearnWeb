@@ -12,6 +12,8 @@ import { MdOutlinePersonOutline } from "react-icons/md";
 import { FaRegCheckCircle } from "react-icons/fa";
 import { RiDoubleQuotesL } from "react-icons/ri";
 import FullBorderCard from "../components/FullBorderCard";
+import HeadingAndSmallText from "../components/HeadingAndSmallText";
+import BorderButton from "../components/BorderButton";
 
 const Home: React.FC = () => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -26,7 +28,7 @@ const Home: React.FC = () => {
     <div>
       <Navbar />
       {/* section1 */}
-      <div className="bg-blue-50 flex flex-col md:flex-row items-center justify-between px-6 py-10 md:px-10 lg:px-20 lg:py-18 relative">
+      <div className="bg-blue-50 flex flex-col md:flex-row items-center justify-between px-6 py-10 md:px-10 lg:px-15 lg:py-18 relative">
         {/* Text Content */}
         <div className="w-full md:w-2/3 flex flex-col items-start">
           <img
@@ -64,16 +66,8 @@ const Home: React.FC = () => {
         </div>
       </div>
       {/* section2 */}
-      <div className=" px-5 md:px-10 lg:px-20 py-5  ">
-        <div>
-          <span className="font-semibold text-3xl block">
-            Ready to reimagine your career?
-          </span>
-          <span className="block text-gray-500 font-medium text-md mt-2">
-            Get the skills and real-world experience employers want with Career
-            Accelerators.
-          </span>
-        </div>
+      <div className=" px-5 md:px-10 lg:px-15 py-5  ">
+        <HeadingAndSmallText />
       </div>
       {/* card1 3 */}
       <div className=" px-5 md:px-10 lg:px-15 grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -82,7 +76,7 @@ const Home: React.FC = () => {
         <FullBorderCard />
       </div>
       {/* section 4 */}
-      <div className=" px-5 md:px-10 lg:px-20 py-5  ">
+      <div className=" px-5 md:px-10 lg:px-15 py-5  ">
         <div>
           <span className="font-semibold text-3xl block">
             All the skills you need in one place
@@ -94,12 +88,12 @@ const Home: React.FC = () => {
         </div>
       </div>
       {/* section line 5 */}
-      <div className="px-5 md:px-10 lg:px-20 ">
+      <div className="px-5 md:px-10 lg:px-15 ">
         <div className="w-full border-t border-gray-300 mb-3"></div>
         <div className="font-semibold text-lg">Data Science</div>
       </div>
       {/* section scroller  6 */}
-      <div className="px-5 md:px-10 lg:px-20 py-5 overflow-x-auto hide-scrollbar">
+      <div className="px-5 md:px-10 lg:px-15 py-5 overflow-x-auto hide-scrollbar">
         <div className="flex flex-row gap-3 w-max">
           <div className="p-4 bg-gray-500 rounded-full text-white min-w-max">
             <span className="block">AI / ML</span>
@@ -116,7 +110,7 @@ const Home: React.FC = () => {
         </div>
       </div>
       {/* card2     7 */}
-      <div className="my-5 px-5 md:px-10 lg:px-20 flex flex-row gap-2 overflow-x-auto hide-scrollbar">
+      <div className="my-5 px-5 md:px-10 lg:px-15 flex flex-row gap-2 overflow-x-auto hide-scrollbar">
         {/* c1 */}
         <div className="w-52 md:w-64 lg:w-80">
           <img
@@ -339,13 +333,9 @@ const Home: React.FC = () => {
         </div>
       </div>
       {/* button  8*/}
-      <div className="my-5 px-5 md:px-10 lg:px-20 flex flex-row gap-2 overflow-x-auto hide-scrollbar">
-        <button className="border border-blue-600 text-blue-600 px-4 py-2 rounded-md font-bold mt-2 hover:bg-blue-50 active:scale-95 transition-all duration-150">
-          Show all Machine Learning courses
-        </button>
-      </div>
+      <BorderButton />
       {/* section 9 */}
-      <div className="px-5 md:px-10 lg:px-20 py-5 text-center">
+      <div className="px-5 md:px-10 lg:px-15 py-5 text-center">
         <div className="text-2xl font-semibold text-gray-500 mb-6">
           Trusted by over 16,000 companies and millions of learners around the
           world
@@ -461,12 +451,12 @@ const Home: React.FC = () => {
         </style>
       </div>
       {/* section line 10 */}
-      <div className="px-5 md:px-10 lg:px-20 ">
+      <div className="px-5 md:px-10 lg:px-15 ">
         <div className="w-full border-t border-gray-300 mb-3"></div>
         <div className="font-semibold text-lg ">Data Science</div>
       </div>
       {/* card3     11 */}
-      <div className="my-5 px-5 md:px-10 lg:px-20 flex flex-row gap-2 overflow-x-auto hide-scrollbar">
+      <div className="my-5 px-5 md:px-10 lg:px-15 flex flex-row gap-2 overflow-x-auto hide-scrollbar">
         {/* c1 */}
         <div className="w-52 md:w-64 lg:w-80">
           <img
@@ -689,12 +679,12 @@ const Home: React.FC = () => {
         </div>
       </div>
       {/* section line 12 */}
-      <div className="px-5 md:px-10 lg:px-20 ">
+      <div className="px-5 md:px-10 lg:px-15 ">
         <div className="w-full border-t border-gray-300 mb-3"></div>
         <div className="font-semibold text-lg ">Data Science</div>
       </div>
       {/* card3     13 */}
-      <div className="my-5 px-5 md:px-10 lg:px-20 flex flex-row gap-2 overflow-x-auto hide-scrollbar">
+      <div className="my-5 px-5 md:px-10 lg:px-15 flex flex-row gap-2 overflow-x-auto hide-scrollbar">
         {/* c1 */}
         <div className="w-52 md:w-64 lg:w-80">
           <img
@@ -917,7 +907,7 @@ const Home: React.FC = () => {
         </div>
       </div>
       {/* section 14 */}
-      <div className="px-5 md:px-10 lg:px-20 bg-blue-50 flex flex-col items-center">
+      <div className="px-5 md:px-10 lg:px-15 bg-blue-50 flex flex-col items-center">
         <div className="font-semibold py-5 text-2xl">Invest in your career</div>
         <div className="w-full flex flex-col md:flex-row md:justify-center md:items-stretch gap-6">
           <div className="flex-1 flex flex-col items-center text-center p-4 ">
@@ -947,7 +937,7 @@ const Home: React.FC = () => {
         </div>
       </div>
       {/* section 15 */}
-      <div className="px-5 md:px-10 lg:px-20 ">
+      <div className="px-5 md:px-10 lg:px-15 ">
         <div>
           <h1 className="font-semibold text-2xl py-3">
             Accelerate growth — for you or your organization
@@ -959,7 +949,7 @@ const Home: React.FC = () => {
         </div>
       </div>
       {/* section 16 */}
-      <div className="px-5 pt-5 pb-5 md:px-10 lg:px-20 grid lg:grid-cols-3 gap-3 ">
+      <div className="px-5 pt-5 pb-5 md:px-10 lg:px-15 grid lg:grid-cols-3 gap-3 ">
         {/* section 1.1 */}
         <div className="border rounded-xl border-gray-400 overflow-hidden">
           <div className=" bg-blue-50 p-7">
@@ -1181,7 +1171,7 @@ const Home: React.FC = () => {
         </div>
       </div>
       {/* section 17 */}
-      <div className="px-5 pt-5 md:px-10 lg:px-20 bg-blue-50  ">
+      <div className="px-5 pt-5 md:px-10 lg:px-15 bg-blue-50  ">
         {/* sec 1.1 */}
         <div>
           <h2 className="text-3xl font-semibold">
@@ -1269,7 +1259,7 @@ const Home: React.FC = () => {
         </div>
       </div>
       {/* section 18 */}
-      <div className="px-5 pt-5 md:px-10 lg:px-20  ">
+      <div className="px-5 pt-5 md:px-10 lg:px-15  ">
         <div className="flex flex-row  items-center">
           {/* section 1.1 */}
           <div className=" space-y-4">
@@ -1289,7 +1279,7 @@ const Home: React.FC = () => {
         </div>
       </div>
       {/* section 19 */}
-      <footer className="bg-gray-900 text-gray-200 py-10 px-5 md:px-10 lg:px-20 mt-10">
+      <footer className="bg-gray-900 text-gray-200 py-10 px-5 md:px-10 lg:px-15 mt-10">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:justify-between gap-8">
           {/* Logo and tagline */}
           <div className="flex-1 mb-8 md:mb-0">

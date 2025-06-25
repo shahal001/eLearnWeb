@@ -1,28 +1,40 @@
 import { IoIosStar } from "react-icons/io";
 
-function FullBorderCard() {
+interface FullBorderCardProps {
+  image: string;
+  heading: string;
+  rating: string;
+  enrolled: string;
+  hours: string;
+}
+
+function FullBorderCard({
+  image,
+  heading,
+  rating,
+  enrolled,
+  hours,
+}: FullBorderCardProps) {
   return (
-    <div className="p-2 border rounded-2xl flex flex-col h-full">
+    <div className="p-2 lg:p-4 border rounded-2xl flex flex-col h-full">
       <div className="w-full overflow-hidden rounded-xl">
         <img
-          src="https://www.siecindia.com/uploads/blog/blog_36b4e5301c6c2dcae787b510a0b942e3_1737112538data-science-online-courses.jpg"
+          src={image}
           alt="career accelerator"
-          className="object-cover w-full h-full"
+          className="object-cover w-full h-32 sm:h-40 md:h-48 lg:h-56 xl:h-64"
         />
       </div>
-      <h1 className="font-bold text-lg lg:text-xl mt-2">
-        Full Stack Web Developer
-      </h1>
+      <h1 className="font-bold text-lg lg:text-xl mt-2">{heading}</h1>
       <div className="flex gap-1 mt-2 flex-row flex-wrap">
-        <div className="flex items-center border border-gray-300 rounded px-2 py-1 w-fit text-xs">
+        <div className="flex items-center border border-gray-300 rounded px-2 py-1 w-fit text-xs lg:text-sm">
           <IoIosStar color="#FFD700" className="mr-1" size={14} />
-          <span className="whitespace-nowrap">4.5</span>
+          <span className="whitespace-nowrap">{rating}</span>
         </div>
-        <div className="flex items-center border border-gray-300 rounded px-2 py-1 text-xs w-fit">
-          <span className="whitespace-nowrap">12K+ Enrolled</span>
+        <div className="flex items-center border border-gray-300 rounded px-2 py-1 text-xs lg:text-sm w-fit">
+          <span className="whitespace-nowrap">{enrolled}</span>
         </div>
-        <div className="flex items-center border border-gray-300 rounded px-2 py-1 w-fit text-xs">
-          <span className="whitespace-nowrap">108.5 total hours</span>
+        <div className="flex items-center border border-gray-300 rounded px-2 py-1 w-fit text-xs lg:text-sm">
+          <span className="whitespace-nowrap">{hours}</span>
         </div>
       </div>
     </div>
@@ -30,3 +42,4 @@ function FullBorderCard() {
 }
 
 export default FullBorderCard;
+

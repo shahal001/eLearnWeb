@@ -15,6 +15,7 @@ import FullBorderCard from "../components/FullBorderCard";
 import HeadingAndSmallText from "../components/HeadingAndSmallText";
 import BorderButton from "../components/BorderButton";
 import HalfBorderCard from "../components/HalfBorderCard";
+import cardData from "../assets/DummyDatas/CardData";
 
 const Home: React.FC = () => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -71,10 +72,17 @@ const Home: React.FC = () => {
         <HeadingAndSmallText />
       </div>
       {/* card1 3 */}
-      <div className=" px-5 md:px-10 lg:px-15 grid grid-cols-1 md:grid-cols-3 gap-4">
-        <FullBorderCard />
-        <FullBorderCard />
-        <FullBorderCard />
+      <div className="px-5 md:px-10 lg:px-15 grid grid-cols-1 md:grid-cols-3 gap-4">
+        {cardData.map((card, idx) => (
+          <FullBorderCard
+            key={idx}
+            image={card.image}
+            heading={card.heading}
+            rating={card.rating}
+            enrolled={card.enrolled}
+            hours={card.hours}
+          />
+        ))}
       </div>
       {/* section 4 */}
       <div className=" px-5 md:px-10 lg:px-15 py-5  ">

@@ -1,10 +1,10 @@
 const HeadingAndSmallText = () => {
   return (
-    <div>
-      <h1 className="font-semibold text-2xl block">
-        Ready to reimagine your career?
+    <div className="my-3">
+      <h1 className=" font-semibold text-2xl md:text-3xl  lg:text-4xl font-playfair block">
+        Ready to reimagine your career ?
       </h1>
-      <p className="block text-gray-500 font-medium text-md mt-2">
+      <p className="block text-gray-500 font-rubik text-md md:text-lg lg:text-xl mt-2">
         Get the skills and real-world experience employers want with Career
         Accelerators.
       </p>

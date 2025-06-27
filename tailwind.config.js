@@ -7,6 +7,11 @@ export default {
         primary: "#3498db",
         secondary: "#2ecc71",
       },
+      fontFamily: {
+        playfair: ['"Playfair Display"', "serif"],
+        rubik: ['"Rubik"', "sans-serif"],
+        lato: ['"Lato"', "sans-serif"],
+      },
     },
   },
   plugins: [],

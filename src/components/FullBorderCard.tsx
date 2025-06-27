@@ -24,7 +24,7 @@ function FullBorderCard({
           className="object-cover w-full h-32 sm:h-40 md:h-48 lg:h-56 xl:h-64"
         />
       </div>
-      <h1 className="font-bold text-lg lg:text-xl mt-2">{heading}</h1>
+      <h1 className="font-bold text-lg lg:text-xl font-lato mt-2">{heading}</h1>
       <div className="flex gap-1 mt-2 flex-row flex-wrap">
         <div className="flex items-center border border-gray-300 rounded px-2 py-1 w-fit text-xs lg:text-sm">
           <IoIosStar color="#FFD700" className="mr-1" size={14} />

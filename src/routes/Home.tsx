@@ -13,60 +13,108 @@ import { FaRegCheckCircle } from "react-icons/fa";
 import { RiDoubleQuotesL } from "react-icons/ri";
 import FullBorderCard from "../components/FullBorderCard";
 import HeadingAndSmallText from "../components/HeadingAndSmallText";
-import BorderButton from "../components/BorderButton";
 import HalfBorderCard from "../components/HalfBorderCard";
-import cardData from "../assets/DummyDatas/CardData";
+import BorderLessCard from "../components/BorderLessCard";
+import InfiniteScroll from "../components/InfiniteScroll";
+import {
+  cardData,
+  courseFilter,
+  HalfBorderCardData,
+  BorderLessCardData,
+  PricingPlans,
+  infiniteAutoScrolling,
+} from "../assets/DummyDatas/CardData";
+import ScrollFiltere from "../components/ScrollFiltere";
+import PriceCard from "../components/PriceCard";
+import Footer from "../components/Footer";
 
 const Home: React.FC = () => {
-  const [isOpen, setIsOpen] = React.useState(false);
-  const [isOpen2, setIsOpen2] = React.useState(false);
-  const [isOpen3, setIsOpen3] = React.useState(false);
-
-  const toggleDiv = () => setIsOpen((prev) => !prev);
-  const toggleDiv2 = () => setIsOpen2((prev) => !prev);
-  const toggleDiv3 = () => setIsOpen3((prev) => !prev);
-
   return (
     <div>
       <Navbar />
       {/* section1 */}
-      <div className="bg-blue-50 flex flex-col md:flex-row items-center justify-between px-6 py-10 md:px-10 lg:px-20 lg:py-18 relative">
-        {/* Text Content */}
-        <div className="w-full md:w-2/3 flex flex-col items-start">
+      <section className="bg-gradient-to-br from-blue-50 via-white to-blue-100 flex flex-col md:flex-row items-center justify-between px-6 py-12 md:px-16 lg:px-20 relative overflow-hidden">
+        {/* Left Content */}
+        <div className="w-full md:w-1/2 flex flex-col items-start z-10">
           <img
-            className="h-8 md:h-10 lg:h-12 xl:h-14 object-contain my-2"
+            className="h-10 md:h-14 object-contain mb-4"
             src={logo}
             alt="logo"
           />
-          <p className="text-2xl md:text-3xl font-semibold text-gray-700 text-left mt-2">
-            Unlock your potential, one lesson at a time.
+          <h1 className="text-3xl md:text-5xl font-extrabold text-gray-800 leading-tight mb-4">
+            Empower Your Future with{" "}
+            <span className="text-blue-600">Acdmx</span>
+          </h1>
+          <p className="text-lg md:text-2xl text-gray-600 mb-3">
+            Learn in-demand skills, earn industry-recognized certificates, and
+            get ready for your dream job.
           </p>
-          <span className="text-sm md:text-base text-gray-500 mt-2">
-            Subscribe to build job-ready skills from world-class institutions.
-          </span>
-          <button className="w-full md:w-auto mt-4 md:mt-6 px-6 py-2 bg-blue-600 text-white rounded-md shadow hover:bg-blue-700 active:scale-95 transition-all duration-200 font-medium">
-            Start 7-day Free Trial
-          </button>
+          <ul className="mb-6 space-y-2 text-gray-700 text-base">
+            <li className="flex items-center gap-2">
+              <FaRegCheckCircle className="text-blue-500" /> 10,000+ expert-led
+              courses
+            </li>
+            <li className="flex items-center gap-2">
+              <FaRegCheckCircle className="text-blue-500" /> Hands-on projects &
+              real-world scenarios
+            </li>
+            <li className="flex items-center gap-2">
+              <FaRegCheckCircle className="text-blue-500" /> Flexible learning,
+              anytime, anywhere
+            </li>
+            <li className="flex items-center gap-2">
+              <FaRegCheckCircle className="text-blue-500" /> Career support &
+              job-ready credentials
+            </li>
+          </ul>
+          <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+            <button className="px-7 py-3 bg-blue-600 text-white rounded-lg font-semibold shadow hover:bg-blue-700 transition-all duration-200">
+              Start 7-day Free Trial
+            </button>
+            <button className="px-7 py-3 border border-blue-600 text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition-all duration-200">
+              Browse Courses
+            </button>
+          </div>
           <a
-            className="text-blue-600 font-bold mt-2 md:mt-4 cursor-pointer text-left active:scale-95 transition-transform duration-100"
+            className="text-blue-600 font-bold mt-4 cursor-pointer text-left hover:underline"
             tabIndex={0}
           >
             or ₹25,000/year with 14-day money-back guarantee
           </a>
-          <p>
-            open your mind with all potential of focus and study for your future
-            along with Acadamix .
+          <p className="mt-4 text-gray-500 text-sm">
+            Open your mind to new possibilities. Join thousands of learners
+            building their future with{" "}
+            <span className="font-semibold text-blue-600">Acdmx</span>.
           </p>
         </div>
-        {/* Image */}
-        <div className="w-full md:w-1/3 flex justify-center mt-6 md:mt-0 order-2 md:order-1">
-          <img
-            className="h-44 sm:h-56 md:h-72 lg:h-96 xl:h-[500px] object-contain"
-            src={student}
-            alt="student"
-          />
+        {/* Right Content */}
+        <div className="w-full md:w-1/2 flex justify-center items-center mt-10 md:mt-0 z-10">
+          <div className="relative">
+            <img
+              className="h-60 sm:h-72 md:h-96 lg:h-[420px] xl:h-[500px] object-contain drop-shadow-xl rounded-2xl"
+              src={student}
+              alt="student"
+            />
+            {/* Decorative floating cards */}
+            <div className="absolute top-4 left-0 bg-white shadow-lg rounded-lg px-4 py-2 flex items-center gap-2 animate-float hidden md:flex">
+              <IoIosStar className="text-yellow-400" />
+              <span className="font-semibold text-gray-700">4.8/5.0</span>
+              <span className="text-xs text-gray-400">Avg. Rating</span>
+            </div>
+            <div className="absolute bottom-8 right-0 bg-blue-600 text-white rounded-lg px-4 py-2 flex items-center gap-2 animate-float2 hidden md:flex">
+              <PiCertificateLight className="text-xl" />
+              <span className="font-semibold">Certified</span>
+            </div>
+            <div className="absolute bottom-0 left-0 bg-white shadow rounded-lg px-3 py-1 flex items-center gap-2 animate-float3 hidden md:flex">
+              <MdOutlinePersonOutline className="text-blue-600" />
+              <span className="text-gray-700 text-sm">16,000+ learners</span>
+            </div>
+          </div>
         </div>
-      </div>
+        {/* Decorative background shapes */}
+        <div className="absolute -top-16 -left-16 w-72 h-72 bg-blue-100 rounded-full opacity-40 blur-2xl pointer-events-none"></div>
+        <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-blue-200 rounded-full opacity-30 blur-3xl pointer-events-none"></div>
+      </section>
       {/* section2 */}
       <div className=" px-5 md:px-10 lg:px-20 py-5  ">
         <HeadingAndSmallText />
@@ -83,14 +131,20 @@ const Home: React.FC = () => {
             hours={card.hours}
           />
         ))}
+
+        <div className="pt-3 flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+          <button className="px-7 py-3 border border-blue-600 text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition-all duration-200">
+            Show all courses
+          </button>
+        </div>
       </div>
       {/* section 4 */}
-      <div className=" px-5 md:px-10 lg:px-20 py-5  ">
+      <div className=" px-5 md:px-10 lg:px-20 py-10  ">
         <div>
-          <span className="font-semibold text-3xl block">
+          <span className="font-semibold text-2xl md:text-3xl  lg:text-4xl font-playfair block">
             All the skills you need in one place
           </span>
-          <span className="block text-gray-500 font-medium text-md mt-2">
+          <span className="block text-gray-500 font-rubik text-md md:text-lg lg:text-xl mt-2">
             Master skills, gain experience, and accelerate your career with
             expert-led courses.
           </span>
@@ -99,622 +153,126 @@ const Home: React.FC = () => {
       {/* section line 5 */}
       <div className="px-5 md:px-10 lg:px-20 ">
         <div className="w-full border-t border-gray-300 mb-3"></div>
-        <div className="font-semibold text-lg">Data Science</div>
-      </div>
-      {/* section scroller  6 */}
-      <div className="px-5 md:px-10 lg:px-20 py-5 overflow-x-auto hide-scrollbar">
-        <div className="flex flex-row gap-3 w-max">
-          <div className="p-4 bg-gray-500 rounded-full text-white min-w-max">
-            <span className="block">AI / ML</span>
-          </div>
-          <div className="p-4 bg-gray-500 rounded-full text-white min-w-max">
-            <span className="block">Data Science</span>
-          </div>
-          <div className="p-4 bg-gray-500 rounded-full text-white min-w-max">
-            <span className="block">Fullstack</span>
-          </div>
-          <div className="p-4 bg-gray-500 rounded-full text-white min-w-max">
-            <span className="block">Big Data</span>
-          </div>
+        <div className="font-semibold text-lg lg:text-xl font-playfair">
+          Top courses
         </div>
       </div>
-      {/* card2     7 */}
-      <div className="my-5 px-5 md:px-10 lg:px-20 flex flex-row gap-2 overflow-x-auto hide-scrollbar">
-        <HalfBorderCard />
-        <HalfBorderCard />
-        <HalfBorderCard />
-        <HalfBorderCard />
-        <HalfBorderCard />
-        <HalfBorderCard />
+      {/* section scroller  6 */}
+      <div className="flex flex-row gap-3 px-5 md:px-10 lg:px-20 py-5 overflow-x-auto hide-scrollbar">
+        {courseFilter.map((data, id) => (
+          <ScrollFiltere
+            key={id}
+            course={data.course}
+            learners={data.learners}
+          />
+        ))}
       </div>
-      {/* button  8*/}
-      <BorderButton />
+      {/* card2     7 */}
+      <div className="my-5 px-5 md:px-10 lg:px-20 overflow-x-auto hide-scrollbar">
+        <div className="flex flex-row gap-4 w-max">
+          {HalfBorderCardData.map((data, index) => (
+            <HalfBorderCard
+              key={index}
+              image={data.image}
+              heading={data.heading}
+              mentors={data.mentors}
+              view={data.view}
+              offerPrice={data.offerPrice}
+              price={data.price}
+              sellStatus={data.sellStatus}
+            />
+          ))}
+        </div>
+      </div>
+      <div className="my-5 px-5 md:px-10 lg:px-20 pt-3 flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+        <button className="px-7 py-3 border border-blue-600 text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition-all duration-200">
+          Show all courses
+        </button>
+      </div>
       {/* section 9 */}
-      <div className="px-5 md:px-10 lg:px-20 py-5 text-center">
-        <div className="text-2xl font-semibold text-gray-500 mb-6">
+      <div className="py-6 text-center">
+        <div className="md:text-xl lg:text-2xl py-4 font-playfair font-semibold text-gray-500 mb-6">
           Trusted by over 16,000 companies and millions of learners around the
           world
         </div>
-        <div
-          className="w-full overflow-x-hidden"
-          style={{ position: "relative" }}
-        >
-          <div
-            className="flex flex-nowrap gap-4 justify-center md:justify-between items-center"
-            style={{
-              animation: "scroll-left 50s linear infinite",
-              minWidth: "200%",
-              whiteSpace: "nowrap",
-              display: "flex",
-            }}
-          >
-            {/* Logos - duplicated for infinite effect */}
-            <img
-              className="h-8 md:h-10 lg:h-12 max-w-[120px] object-contain inline-block"
-              src="https://cms-images.udemycdn.com/96883mtakkm8/3E0eIh3tWHNWADiHNBmW4j/3444d1a4d029f283aa7d10ccf982421e/volkswagen_logo.svg"
-              alt="Volkswagen"
-            />
-            <img
-              className="h-8 md:h-10 lg:h-12 max-w-[120px] object-contain inline-block"
-              src="https://cms-images.udemycdn.com/96883mtakkm8/2pNyDO0KV1eHXk51HtaAAz/090fac96127d62e784df31e93735f76a/samsung_logo.svg"
-              alt="Samsung"
-            />
-            <img
-              className="h-8 md:h-10 lg:h-12 max-w-[120px] object-contain inline-block"
-              src="https://cms-images.udemycdn.com/96883mtakkm8/3YzfvEjCAUi3bKHLW2h1h8/ec478fa1ed75f6090a7ecc9a083d80af/cisco_logo.svg"
-              alt="Cisco"
-            />
-            <img
-              className="h-8 md:h-10 lg:h-12 max-w-[120px] object-contain inline-block"
-              src="https://cms-images.udemycdn.com/96883mtakkm8/23XnhdqwGCYUhfgIJzj3PM/77259d1ac2a7d771c4444e032ee40d9e/vimeo_logo_resized-2.svg"
-              alt="Vimeo"
-            />
-            <img
-              className="h-8 md:h-10 lg:h-12 max-w-[120px] object-contain inline-block"
-              src="https://cms-images.udemycdn.com/96883mtakkm8/1UUVZtTGuvw23MwEnDPUr3/2683579ac045486a0aff67ce8a5eb240/procter_gamble_logo.svg"
-              alt="Procter & Gamble"
-            />
-            <img
-              className="h-8 md:h-10 lg:h-12 max-w-[120px] object-contain inline-block"
-              src="https://cms-images.udemycdn.com/96883mtakkm8/1GoAicYDYxxRPGnCpg93gi/a8b6190cc1a24e21d6226200ca488eb8/hewlett_packard_enterprise_logo.svg"
-              alt="Hewlett Packard Enterprise"
-            />
-            <img
-              className="h-8 md:h-10 lg:h-12 max-w-[120px] object-contain inline-block"
-              src="https://cms-images.udemycdn.com/96883mtakkm8/2tQm6aYrWQzlKBQ95W00G/c7aaf002814c2cde71d411926eceaefa/citi_logo.svg"
-              alt="Citi"
-            />
-            <img
-              className="h-8 md:h-10 lg:h-12 max-w-[120px] object-contain inline-block"
-              src="https://cms-images.udemycdn.com/96883mtakkm8/7guDRVYa2DZD0wD1SyxREP/b704dfe6b0ffb3b26253ec36b4aab505/ericsson_logo.svg"
-              alt="Ericsson"
-            />
-            {/* Duplicate logos for infinite scroll */}
-            <img
-              className="h-8 md:h-10 lg:h-12 max-w-[120px] object-contain inline-block"
-              src="https://cms-images.udemycdn.com/96883mtakkm8/3E0eIh3tWHNWADiHNBmW4j/3444d1a4d029f283aa7d10ccf982421e/volkswagen_logo.svg"
-              alt="Volkswagen"
-            />
-            <img
-              className="h-8 md:h-10 lg:h-12 max-w-[120px] object-contain inline-block"
-              src="https://cms-images.udemycdn.com/96883mtakkm8/2pNyDO0KV1eHXk51HtaAAz/090fac96127d62e784df31e93735f76a/samsung_logo.svg"
-              alt="Samsung"
-            />
-            <img
-              className="h-8 md:h-10 lg:h-12 max-w-[120px] object-contain inline-block"
-              src="https://cms-images.udemycdn.com/96883mtakkm8/3YzfvEjCAUi3bKHLW2h1h8/ec478fa1ed75f6090a7ecc9a083d80af/cisco_logo.svg"
-              alt="Cisco"
-            />
-            <img
-              className="h-8 md:h-10 lg:h-12 max-w-[120px] object-contain inline-block"
-              src="https://cms-images.udemycdn.com/96883mtakkm8/23XnhdqwGCYUhfgIJzj3PM/77259d1ac2a7d771c4444e032ee40d9e/vimeo_logo_resized-2.svg"
-              alt="Vimeo"
-            />
-            <img
-              className="h-8 md:h-10 lg:h-12 max-w-[120px] object-contain inline-block"
-              src="https://cms-images.udemycdn.com/96883mtakkm8/1UUVZtTGuvw23MwEnDPUr3/2683579ac045486a0aff67ce8a5eb240/procter_gamble_logo.svg"
-              alt="Procter & Gamble"
-            />
-            <img
-              className="h-8 md:h-10 lg:h-12 max-w-[120px] object-contain inline-block"
-              src="https://cms-images.udemycdn.com/96883mtakkm8/1GoAicYDYxxRPGnCpg93gi/a8b6190cc1a24e21d6226200ca488eb8/hewlett_packard_enterprise_logo.svg"
-              alt="Hewlett Packard Enterprise"
-            />
-            <img
-              className="h-8 md:h-10 lg:h-12 max-w-[120px] object-contain inline-block"
-              src="https://cms-images.udemycdn.com/96883mtakkm8/2tQm6aYrWQzlKBQ95W00G/c7aaf002814c2cde71d411926eceaefa/citi_logo.svg"
-              alt="Citi"
-            />
-            <img
-              className="h-8 md:h-10 lg:h-12 max-w-[120px] object-contain inline-block"
-              src="https://cms-images.udemycdn.com/96883mtakkm8/7guDRVYa2DZD0wD1SyxREP/b704dfe6b0ffb3b26253ec36b4aab505/ericsson_logo.svg"
-              alt="Ericsson"
-            />
-          </div>
-        </div>
-        <style>
-          {`
-            @keyframes scroll-left {
-              0% {
-          transform: translateX(0%);
-              }
-              100% {
-          transform: translateX(-50%);
-              }
-            }
-          `}
-        </style>
+        <InfiniteScroll logos={infiniteAutoScrolling} />
       </div>
       {/* section line 10 */}
-      <div className="px-5 md:px-10 lg:px-20 ">
-        <div className="w-full border-t border-gray-300 mb-3"></div>
-        <div className="font-semibold text-lg ">Data Science</div>
+      <div className="p-5 md:px-10 lg:px-20 ">
+        <div className="font-semibold text-lg lg:text-2xl font-playfair ">
+          Artificial Intelligence
+        </div>
       </div>
       {/* card3     11 */}
-      <div className="my-5 px-5 md:px-10 lg:px-20 flex flex-row gap-2 overflow-x-auto hide-scrollbar">
-        {/* c1 */}
-        <div className="w-52 md:w-64 lg:w-80">
-          <img
-            src="https://images.vexels.com/media/users/3/197141/raw/3a4ed40c62437272f5e7d42ba1311b55-online-course-slider-template.jpg"
-            alt="no image"
-          />
-          <h1
-            className="block text-md font-bold text-gray-800 mt-2 mb-1"
-            style={{
-              display: "-webkit-box",
-              WebkitLineClamp: 2,
-              WebkitBoxOrient: "vertical",
-              overflow: "hidden",
-              textOverflow: "ellipsis",
-            }}
-          >
-            The Complete AI Guide: Learn ChatGPT, Generative AI & More
-          </h1>
-          <span className="block truncate text-gray-600">
-            Aarav Bavir, Zayan Samual, Vihaan Loga, Neil Bahami
-          </span>
-          <div className="flex flex-row">
-            <span className="text-gray-500 text-sm">4.5</span>
-            <IoIosStar /> <IoIosStar /> <IoIosStar /> <IoIosStar />{" "}
-            <IoIosStar />
-            <span className="text-gray-500 text-sm ml-2">( 458525 )</span>
-          </div>
-          <div className="flex flex-row items-center gap-2 mt-2">
-            <div>₹599</div>
-            <div className="line-through text-gray-400">₹1599</div>
-          </div>
-          <span className="font-semibold text-blue-500 bg-blue-100 px-2 py-0.5 rounded ">
-            Bestseller
-          </span>
+      <div className="my-5 px-5 md:px-10 lg:px-20 overflow-x-auto hide-scrollbar">
+        <div className="flex flex-row gap-4 w-max">
+          {BorderLessCardData.map((data, index) => (
+            <BorderLessCard
+              key={index}
+              image={data.image}
+              heading={data.heading}
+              mentors={data.mentors}
+              view={data.view}
+              offerPrice={data.offerPrice}
+              price={data.price}
+              sellStatus={data.sellStatus}
+            />
+          ))}
         </div>
-        {/* c2 */}
-        <div className="w-52 md:w-64 lg:w-80">
-          <img
-            src="https://images.vexels.com/media/users/3/197141/raw/3a4ed40c62437272f5e7d42ba1311b55-online-course-slider-template.jpg"
-            alt="no image"
-          />
-          <h1
-            className="block text-md font-bold text-gray-800 mt-2 mb-1"
-            style={{
-              display: "-webkit-box",
-              WebkitLineClamp: 2,
-              WebkitBoxOrient: "vertical",
-              overflow: "hidden",
-              textOverflow: "ellipsis",
-            }}
-          >
-            The Complete AI Guide: Learn ChatGPT, Generative AI & More
-          </h1>
-          <span className="block truncate text-gray-600">
-            Aarav Bavir, Zayan Samual, Vihaan Loga, Neil Bahami
-          </span>
-          <div className="flex flex-row">
-            <span className="text-gray-500 text-sm items-center justify-center">
-              4.5
-            </span>
-            <IoIosStar /> <IoIosStar /> <IoIosStar /> <IoIosStar />{" "}
-            <IoIosStar />
-            <span className="text-gray-500 text-sm ml-2">( 458525 )</span>
-          </div>
-          <div className="flex flex-row items-center gap-2 mt-2">
-            <div>₹599</div>
-            <div className="line-through text-gray-400">₹1599</div>
-          </div>
-          <span className="font-semibold text-blue-500 bg-blue-100 px-2 py-0.5 rounded ">
-            Bestseller
-          </span>
-        </div>
-        {/* c3 */}
-        <div className="w-52 md:w-64 lg:w-80">
-          <img
-            src="https://images.vexels.com/media/users/3/197141/raw/3a4ed40c62437272f5e7d42ba1311b55-online-course-slider-template.jpg"
-            alt="no image"
-          />
-          <h1
-            className="block text-md font-bold text-gray-800 mt-2 mb-1"
-            style={{
-              display: "-webkit-box",
-              WebkitLineClamp: 2,
-              WebkitBoxOrient: "vertical",
-              overflow: "hidden",
-              textOverflow: "ellipsis",
-            }}
-          >
-            The Complete AI Guide: Learn ChatGPT, Generative AI & More
-          </h1>
-          <span className="block truncate text-gray-600">
-            Aarav Bavir, Zayan Samual, Vihaan Loga, Neil Bahami
-          </span>
-          <div className="flex flex-row">
-            <span className="text-gray-500 text-sm items-center justify-center">
-              4.5
-            </span>
-            <IoIosStar /> <IoIosStar /> <IoIosStar /> <IoIosStar />{" "}
-            <IoIosStar />
-            <span className="text-gray-500 text-sm ml-2">( 458525 )</span>
-          </div>
-          <div className="flex flex-row items-center gap-2 mt-2">
-            <div>₹599</div>
-            <div className="line-through text-gray-400">₹1599</div>
-          </div>
-          <span className="font-semibold text-blue-500 bg-blue-100 px-2 py-0.5 rounded ">
-            Bestseller
-          </span>
-        </div>
-        {/* c4 */}
-        <div className="w-52 md:w-64 lg:w-80">
-          <img
-            src="https://images.vexels.com/media/users/3/197141/raw/3a4ed40c62437272f5e7d42ba1311b55-online-course-slider-template.jpg"
-            alt="no image"
-          />
-          <h1
-            className="block text-md font-bold text-gray-800 mt-2 mb-1"
-            style={{
-              display: "-webkit-box",
-              WebkitLineClamp: 2,
-              WebkitBoxOrient: "vertical",
-              overflow: "hidden",
-              textOverflow: "ellipsis",
-            }}
-          >
-            The Complete AI Guide: Learn ChatGPT, Generative AI & More
-          </h1>
-          <span className="block truncate text-gray-600">
-            Aarav Bavir, Zayan Samual, Vihaan Loga, Neil Bahami
-          </span>
-          <div className="flex flex-row">
-            <span className="text-gray-500 text-sm items-center justify-center">
-              4.5
-            </span>
-            <IoIosStar /> <IoIosStar /> <IoIosStar /> <IoIosStar />{" "}
-            <IoIosStar />
-            <span className="text-gray-500 text-sm ml-2">( 458525 )</span>
-          </div>
-          <div className="flex flex-row items-center gap-2 mt-2">
-            <div>₹599</div>
-            <div className="line-through text-gray-400">₹1599</div>
-          </div>
-          <span className="font-semibold text-blue-500 bg-blue-100 px-2 py-0.5 rounded ">
-            Bestseller
-          </span>
-        </div>
-        {/* c5 */}
-        <div className="w-52 md:w-64 lg:w-80">
-          <img
-            src="https://images.vexels.com/media/users/3/197141/raw/3a4ed40c62437272f5e7d42ba1311b55-online-course-slider-template.jpg"
-            alt="no image"
-          />
-          <h1
-            className="block text-md font-bold text-gray-800 mt-2 mb-1"
-            style={{
-              display: "-webkit-box",
-              WebkitLineClamp: 2,
-              WebkitBoxOrient: "vertical",
-              overflow: "hidden",
-              textOverflow: "ellipsis",
-            }}
-          >
-            The Complete AI Guide: Learn ChatGPT, Generative AI & More
-          </h1>
-          <span className="block truncate text-gray-600">
-            Aarav Bavir, Zayan Samual, Vihaan Loga, Neil Bahami
-          </span>
-          <div className="flex flex-row">
-            <span className="text-gray-500 text-sm items-center justify-center">
-              4.5
-            </span>
-            <IoIosStar /> <IoIosStar /> <IoIosStar /> <IoIosStar />{" "}
-            <IoIosStar />
-            <span className="text-gray-500 text-sm ml-2">( 458525 )</span>
-          </div>
-          <div className="flex flex-row items-center gap-2 mt-2">
-            <div>₹599</div>
-            <div className="line-through text-gray-400">₹1599</div>
-          </div>
-          <span className="font-semibold text-blue-500 bg-blue-100 px-2 py-0.5 rounded ">
-            Bestseller
-          </span>
-        </div>
-        {/* c6 */}
-        <div className="w-52 md:w-64 lg:w-80">
-          <img
-            src="https://images.vexels.com/media/users/3/197141/raw/3a4ed40c62437272f5e7d42ba1311b55-online-course-slider-template.jpg"
-            alt="no image"
-          />
-          <h1
-            className="block text-md font-bold text-gray-800 mt-2 mb-1"
-            style={{
-              display: "-webkit-box",
-              WebkitLineClamp: 2,
-              WebkitBoxOrient: "vertical",
-              overflow: "hidden",
-              textOverflow: "ellipsis",
-            }}
-          >
-            The Complete AI Guide: Learn ChatGPT, Generative AI & More
-          </h1>
-          <span className="block truncate text-gray-600">
-            Aarav Bavir, Zayan Samual, Vihaan Loga, Neil Bahami
-          </span>
-          <div className="flex flex-row">
-            <span className="text-gray-500 text-sm items-center justify-center">
-              4.5
-            </span>
-            <IoIosStar /> <IoIosStar /> <IoIosStar /> <IoIosStar />{" "}
-            <IoIosStar />
-            <span className="text-gray-500 text-sm ml-2">( 458525 )</span>
-          </div>
-          <div className="flex flex-row items-center gap-2 mt-2">
-            <div>₹599</div>
-            <div className="line-through text-gray-400">₹1599</div>
-          </div>
-          <span className="font-semibold text-blue-500 bg-blue-100 px-2 py-0.5 rounded ">
-            Bestseller
-          </span>
-        </div>
+      </div>
+      <div className="my-5 px-5 md:px-10 lg:px-20 pt-3 flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+        <button className="px-7 py-3 border border-blue-600 text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition-all duration-200">
+          Show all
+        </button>
       </div>
       {/* section line 12 */}
-      <div className="px-5 md:px-10 lg:px-20 ">
-        <div className="w-full border-t border-gray-300 mb-3"></div>
-        <div className="font-semibold text-lg ">Data Science</div>
+      <div className="p-5 md:px-10 lg:px-20 ">
+        <div className="font-semibold text-lg lg:text-2xl font-playfair ">
+          Recent Search
+        </div>
       </div>
       {/* card3     13 */}
-      <div className="my-5 px-5 md:px-10 lg:px-20 flex flex-row gap-2 overflow-x-auto hide-scrollbar">
-        {/* c1 */}
-        <div className="w-52 md:w-64 lg:w-80">
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8p0pWhqqaYVGXhAu-nz2ILkx_vqSXq2Ca6A&s"
-            alt="no image"
-          />
-          <h1
-            className="block text-md font-bold text-gray-800 mt-2 mb-1"
-            style={{
-              display: "-webkit-box",
-              WebkitLineClamp: 2,
-              WebkitBoxOrient: "vertical",
-              overflow: "hidden",
-              textOverflow: "ellipsis",
-            }}
-          >
-            The Complete AI Guide: Learn ChatGPT, Generative AI & More
-          </h1>
-          <span className="block truncate text-gray-600">
-            Aarav Bavir, Zayan Samual, Vihaan Loga, Neil Bahami
-          </span>
-          <div className="flex flex-row">
-            <span className="text-gray-500 text-sm">4.5</span>
-            <IoIosStar /> <IoIosStar /> <IoIosStar /> <IoIosStar />{" "}
-            <IoIosStar />
-            <span className="text-gray-500 text-sm ml-2">( 458525 )</span>
-          </div>
-          <div className="flex flex-row items-center gap-2 mt-2">
-            <div>₹599</div>
-            <div className="line-through text-gray-400">₹1599</div>
-          </div>
-          <span className="font-semibold text-blue-500 bg-blue-100 px-2 py-0.5 rounded ">
-            Bestseller
-          </span>
-        </div>
-        {/* c2 */}
-        <div className="w-52 md:w-64 lg:w-80">
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8p0pWhqqaYVGXhAu-nz2ILkx_vqSXq2Ca6A&s"
-            alt="no image"
-          />
-          <h1
-            className="block text-md font-bold text-gray-800 mt-2 mb-1"
-            style={{
-              display: "-webkit-box",
-              WebkitLineClamp: 2,
-              WebkitBoxOrient: "vertical",
-              overflow: "hidden",
-              textOverflow: "ellipsis",
-            }}
-          >
-            The Complete AI Guide: Learn ChatGPT, Generative AI & More
-          </h1>
-          <span className="block truncate text-gray-600">
-            Aarav Bavir, Zayan Samual, Vihaan Loga, Neil Bahami
-          </span>
-          <div className="flex flex-row">
-            <span className="text-gray-500 text-sm items-center justify-center">
-              4.5
-            </span>
-            <IoIosStar /> <IoIosStar /> <IoIosStar /> <IoIosStar />{" "}
-            <IoIosStar />
-            <span className="text-gray-500 text-sm ml-2">( 458525 )</span>
-          </div>
-          <div className="flex flex-row items-center gap-2 mt-2">
-            <div>₹599</div>
-            <div className="line-through text-gray-400">₹1599</div>
-          </div>
-          <span className="font-semibold text-blue-500 bg-blue-100 px-2 py-0.5 rounded ">
-            Bestseller
-          </span>
-        </div>
-        {/* c3 */}
-        <div className="w-52 md:w-64 lg:w-80">
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8p0pWhqqaYVGXhAu-nz2ILkx_vqSXq2Ca6A&s"
-            alt="no image"
-          />
-          <h1
-            className="block text-md font-bold text-gray-800 mt-2 mb-1"
-            style={{
-              display: "-webkit-box",
-              WebkitLineClamp: 2,
-              WebkitBoxOrient: "vertical",
-              overflow: "hidden",
-              textOverflow: "ellipsis",
-            }}
-          >
-            The Complete AI Guide: Learn ChatGPT, Generative AI & More
-          </h1>
-          <span className="block truncate text-gray-600">
-            Aarav Bavir, Zayan Samual, Vihaan Loga, Neil Bahami
-          </span>
-          <div className="flex flex-row">
-            <span className="text-gray-500 text-sm items-center justify-center">
-              4.5
-            </span>
-            <IoIosStar /> <IoIosStar /> <IoIosStar /> <IoIosStar />{" "}
-            <IoIosStar />
-            <span className="text-gray-500 text-sm ml-2">( 458525 )</span>
-          </div>
-          <div className="flex flex-row items-center gap-2 mt-2">
-            <div>₹599</div>
-            <div className="line-through text-gray-400">₹1599</div>
-          </div>
-          <span className="font-semibold text-blue-500 bg-blue-100 px-2 py-0.5 rounded ">
-            Bestseller
-          </span>
-        </div>
-        {/* c4 */}
-        <div className="w-52 md:w-64 lg:w-80">
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8p0pWhqqaYVGXhAu-nz2ILkx_vqSXq2Ca6A&s"
-            alt="no image"
-          />
-          <h1
-            className="block text-md font-bold text-gray-800 mt-2 mb-1"
-            style={{
-              display: "-webkit-box",
-              WebkitLineClamp: 2,
-              WebkitBoxOrient: "vertical",
-              overflow: "hidden",
-              textOverflow: "ellipsis",
-            }}
-          >
-            The Complete AI Guide: Learn ChatGPT, Generative AI & More
-          </h1>
-          <span className="block truncate text-gray-600">
-            Aarav Bavir, Zayan Samual, Vihaan Loga, Neil Bahami
-          </span>
-          <div className="flex flex-row">
-            <span className="text-gray-500 text-sm items-center justify-center">
-              4.5
-            </span>
-            <IoIosStar /> <IoIosStar /> <IoIosStar /> <IoIosStar />{" "}
-            <IoIosStar />
-            <span className="text-gray-500 text-sm ml-2">( 458525 )</span>
-          </div>
-          <div className="flex flex-row items-center gap-2 mt-2">
-            <div>₹599</div>
-            <div className="line-through text-gray-400">₹1599</div>
-          </div>
-          <span className="font-semibold text-blue-500 bg-blue-100 px-2 py-0.5 rounded ">
-            Bestseller
-          </span>
-        </div>
-        {/* c5 */}
-        <div className="w-52 md:w-64 lg:w-80">
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8p0pWhqqaYVGXhAu-nz2ILkx_vqSXq2Ca6A&s"
-            alt="no image"
-          />
-          <h1
-            className="block text-md font-bold text-gray-800 mt-2 mb-1"
-            style={{
-              display: "-webkit-box",
-              WebkitLineClamp: 2,
-              WebkitBoxOrient: "vertical",
-              overflow: "hidden",
-              textOverflow: "ellipsis",
-            }}
-          >
-            The Complete AI Guide: Learn ChatGPT, Generative AI & More
-          </h1>
-          <span className="block truncate text-gray-600">
-            Aarav Bavir, Zayan Samual, Vihaan Loga, Neil Bahami
-          </span>
-          <div className="flex flex-row">
-            <span className="text-gray-500 text-sm items-center justify-center">
-              4.5
-            </span>
-            <IoIosStar /> <IoIosStar /> <IoIosStar /> <IoIosStar />{" "}
-            <IoIosStar />
-            <span className="text-gray-500 text-sm ml-2">( 458525 )</span>
-          </div>
-          <div className="flex flex-row items-center gap-2 mt-2">
-            <div>₹599</div>
-            <div className="line-through text-gray-400">₹1599</div>
-          </div>
-          <span className="font-semibold text-blue-500 bg-blue-100 px-2 py-0.5 rounded ">
-            Bestseller
-          </span>
-        </div>
-        {/* c6 */}
-        <div className="w-52 md:w-64 lg:w-80">
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8p0pWhqqaYVGXhAu-nz2ILkx_vqSXq2Ca6A&s"
-            alt="no image"
-          />
-          <h1
-            className="block text-md font-bold text-gray-800 mt-2 mb-1"
-            style={{
-              display: "-webkit-box",
-              WebkitLineClamp: 2,
-              WebkitBoxOrient: "vertical",
-              overflow: "hidden",
-              textOverflow: "ellipsis",
-            }}
-          >
-            The Complete AI Guide: Learn ChatGPT, Generative AI & More
-          </h1>
-          <span className="block truncate text-gray-600">
-            Aarav Bavir, Zayan Samual, Vihaan Loga, Neil Bahami
-          </span>
-          <div className="flex flex-row">
-            <span className="text-gray-500 text-sm items-center justify-center">
-              4.5
-            </span>
-            <IoIosStar /> <IoIosStar /> <IoIosStar /> <IoIosStar />{" "}
-            <IoIosStar />
-            <span className="text-gray-500 text-sm ml-2">( 458525 )</span>
-          </div>
-          <div className="flex flex-row items-center gap-2 mt-2">
-            <div>₹599</div>
-            <div className="line-through text-gray-400">₹1599</div>
-          </div>
-          <span className="font-semibold text-blue-500 bg-blue-100 px-2 py-0.5 rounded ">
-            Bestseller
-          </span>
+      <div className="my-5 px-5 md:px-10 lg:px-20 overflow-x-auto hide-scrollbar">
+        <div className="flex flex-row gap-4 w-max">
+          {BorderLessCardData.map((data, index) => (
+            <BorderLessCard
+              key={index}
+              image={data.image}
+              heading={data.heading}
+              mentors={data.mentors}
+              view={data.view}
+              offerPrice={data.offerPrice}
+              price={data.price}
+              sellStatus={data.sellStatus}
+            />
+          ))}
         </div>
       </div>
+      <div className="my-5 px-5 md:px-10 lg:px-20 pt-3 flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+        <button className="px-7 py-3 border border-blue-600 text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition-all duration-200">
+          Show all
+        </button>
+      </div>
       {/* section 14 */}
-      <div className="px-5 md:px-10 lg:px-20 bg-blue-50 flex flex-col items-center">
-        <div className="font-semibold py-5 text-2xl">Invest in your career</div>
-        <div className="w-full flex flex-col md:flex-row md:justify-center md:items-stretch gap-6">
-          <div className="flex-1 flex flex-col items-center text-center p-4 ">
-            <FiTarget className="text-2xl mb-2 text-gray-600" />
-            <h1 className="font-semibold mb-1">Explore new skills</h1>
+      <div className="px-5 md:px-10 lg:px-20 py-5 bg-blue-50 flex flex-col items-center">
+        <div className="font-semibold pt-6 text-2xl lg:text-3xl font-playfair">
+          Invest in your career
+        </div>
+        <div className="w-full flex flex-col md:flex-row md:justify-center md:items-baseline py-6 gap-6">
+          <div className="flex-1 flex flex-col items-center  text-center p-4 ">
+            <FiTarget className="text-2xl lg:text-3xl mb-2 text-gray-600" />
+            <h1 className="font-semibold mb-1 lg:text-xl">
+              Explore new skills
+            </h1>
             <p className="text-gray-500 text-sm">
               Access 10,000+ courses in AI, business, technology, and more.
             </p>
           </div>
           <div className="flex-1 flex flex-col items-center text-center p-4 ">
-            <PiCertificateLight className="text-3xl mb-2 text-gray-600" />
-            <h1 className="font-semibold mb-1">Earn valuable credentials</h1>
+            <PiCertificateLight className="text-3xl lg:text-4xl mb-2 text-gray-600" />
+            <h1 className="font-semibold mb-1 lg:text-xl">
+              Earn valuable credentials
+            </h1>
             <p className="text-gray-500 text-sm">
               Get certificates for every course you finish and boost your
               chances of getting hired after your trial ends at no additional
@@ -722,8 +280,10 @@ const Home: React.FC = () => {
             </p>
           </div>
           <div className="flex-1 flex flex-col items-center text-center p-4 ">
-            <FiStar className="text-2xl mb-2 text-gray-600" />
-            <h1 className="font-semibold mb-1">Learn from the best</h1>
+            <FiStar className="text-2xl lg:text-3xl mb-2 text-gray-600" />
+            <h1 className="font-semibold mb-1 lg:text-xl">
+              Learn from the best
+            </h1>
             <p className="text-gray-500 text-sm">
               Take your skills to the next level with expert-led courses and
               Coursera Coach, your AI-powered guide.
@@ -731,13 +291,137 @@ const Home: React.FC = () => {
           </div>
         </div>
       </div>
+      {/* section 18 */}
+      <div className="px-5 md:px-10 lg:px-20 ">
+        <div className="flex flex-col lg:flex-row  items-center">
+          {/* section 1.1 */}
+          <div className=" space-y-4">
+            <h1 className="text-xl md:text-2xl lg:text-3xl font-semibold font-playfair">
+              AI for Business Leaders
+            </h1>
+            <p className="text-sm lg:text-md">
+              Build an AI-habit for you and your team that builds hands-on
+              skills to help you lead effectively.
+            </p>
+            <button className="mt-4 border border-blue-600 text-blue-600 px-3 py-1 lg:px-5 lg:py-2 rounded-md font-semibold hover:bg-blue-50 active:scale-95 transition-all duration-150 flex items-center gap-2">
+              Start Learning <span className="text-lg">&rarr;</span>
+            </button>
+          </div>
+          {/* section 1.2 */}
+          <div>
+            <img
+              className="max-w-[80%] max-h-[80%] pt-5 lg:py-2"
+              src={stepImg}
+              alt="noImage"
+            />
+          </div>
+        </div>
+      </div>
+      {/* section 17 */}
+      <div className="px-5 pt-5 md:px-10 lg:px-20 bg-blue-50  ">
+        <div className="py-10">
+          {/* sec 1.1 */}
+          <div>
+            <h2 className="text-3xl font-semibold py-5 font-playfair">
+              See what others are achieving through learning
+            </h2>
+          </div>
+          {/* sec 1.2 */}
+          <div className="flex flex-row gap-6 overflow-x-auto hide-scrollbar py-4">
+            <div className="bg-white p-10 rounded-lg space-y-8 max-w-96 min-w-[320px] flex-shrink-0">
+              <RiDoubleQuotesL className="text-2xl" />
+              <p>
+                Because of this course I was able to clear my two interviews...
+                Thanks for making such wonderful content.{" "}
+              </p>
+              <div>
+                <div className="flex flex-row items-center gap-2 mt-3">
+                  <div className="bg-black w-10 h-10 flex items-center justify-center rounded-full">
+                    <h1 className="text-white text-base font-semibold">AV</h1>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold">Aarav Bavir</h3>
+                    <p className="text-gray-500 text-sm">Software Engineer</p>
+                  </div>
+                </div>
+              </div>
+              <div className="text-blue-600">
+                Achieved dream job at TechCorp
+              </div>
+            </div>
+            <div className="bg-white p-10 rounded-lg space-y-8 max-w-96 min-w-[320px] flex-shrink-0">
+              <RiDoubleQuotesL className="text-2xl" />
+              <p>
+                Because of this course I was able to clear my two interviews...
+                Thanks for making such wonderful content.{" "}
+              </p>
+              <div>
+                <div className="flex flex-row items-center gap-2 mt-3">
+                  <div className="bg-black w-10 h-10 flex items-center justify-center rounded-full">
+                    <h1 className="text-white text-base font-semibold">AV</h1>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold">Aarav Bavir</h3>
+                    <p className="text-gray-500 text-sm">Software Engineer</p>
+                  </div>
+                </div>
+              </div>
+              <div className="text-blue-600">
+                Achieved dream job at TechCorp
+              </div>
+            </div>
+            <div className="bg-white p-10 rounded-lg space-y-8 max-w-96 min-w-[320px] flex-shrink-0">
+              <RiDoubleQuotesL className="text-2xl" />
+              <p>
+                Because of this course I was able to clear my two interviews...
+                Thanks for making such wonderful content.{" "}
+              </p>
+              <div>
+                <div className="flex flex-row items-center gap-2 mt-3">
+                  <div className="bg-black w-10 h-10 flex items-center justify-center rounded-full">
+                    <h1 className="text-white text-base font-semibold">AV</h1>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold">Aarav Bavir</h3>
+                    <p className="text-gray-500 text-sm">Software Engineer</p>
+                  </div>
+                </div>
+              </div>
+              <div className="text-blue-600">
+                Achieved dream job at TechCorp
+              </div>
+            </div>
+            <div className="bg-white p-10 rounded-lg space-y-8 max-w-96 min-w-[320px] flex-shrink-0">
+              <RiDoubleQuotesL className="text-2xl" />
+              <p>
+                Because of this course I was able to clear my two interviews...
+                Thanks for making such wonderful content.{" "}
+              </p>
+              <div>
+                <div className="flex flex-row items-center gap-2 mt-3">
+                  <div className="bg-black w-10 h-10 flex items-center justify-center rounded-full">
+                    <h1 className="text-white text-base font-semibold">AV</h1>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold">Aarav Bavir</h3>
+                    <p className="text-gray-500 text-sm">Software Engineer</p>
+                  </div>
+                </div>
+              </div>
+              <div className="text-blue-600">
+                Achieved dream job at TechCorp
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       {/* section 15 */}
       <div className="px-5 md:px-10 lg:px-20 ">
-        <div>
-          <h1 className="font-semibold text-2xl py-3">
+        <div className="pt-7 ">
+          <h1 className="font-semibold font-playfair text-2xl py-3">
             Accelerate growth — for you or your organization
           </h1>
-          <p className="text-gray-500 text-sm mb-5">
+          <p className="text-gray-500 text-sm lg:text-lg mb-5 font-rubik ">
             Reach goals faster with one of our plans or programs. Try one free
             today or contact sales to learn more.
           </p>
@@ -745,429 +429,21 @@ const Home: React.FC = () => {
       </div>
       {/* section 16 */}
       <div className="px-5 pt-5 pb-5 md:px-10 lg:px-20 grid lg:grid-cols-3 gap-3 ">
-        {/* section 1.1 */}
-        <div className="border rounded-xl border-gray-400 overflow-hidden">
-          <div className=" bg-blue-50 p-7">
-            <div className="flex flex-row items-center justify-between">
-              <span className="font-semibold">Personal Plan</span>
-              <button
-                type="button"
-                aria-label="Show more"
-                className={`text-2xl focus:outline-none transition-transform duration-200 lg:hidden ${
-                  isOpen ? "rotate-180" : ""
-                }`}
-                onClick={toggleDiv}
-              >
-                <MdKeyboardArrowDown />
-              </button>
-            </div>
-            <div className="text-sm text-gray-600">for you</div>
-            <div className="flex flex-row items-center gap-3 text-sm text-gray-600">
-              <MdOutlinePersonOutline />
-              <span>Personal Plan</span>
-            </div>
-          </div>
-          {/* section 1.2 */}
-          {isOpen && (
-            <div className=" p-7">
-              <h1>
-                Starting at <span>₹500</span> per month
-              </h1>
-              <p className="text-sm text-gray-500">
-                Billed monthly or annually. Cancel anytime.
-              </p>
-              <button className="mt-4 w-full bg-blue-600 text-white px-6 py-2 rounded-md font-semibold hover:bg-blue-700 active:scale-95 transition-all duration-200">
-                Start Free Trial
-              </button>
-              <ul className="mt-4 space-y-4">
-                <li className="flex flex-row gap-2 items-baseline text-sm ">
-                  <span>
-                    <FaRegCheckCircle />
-                  </span>
-                  Access to 26,000+ top courses
-                </li>
-                <li className="flex flex-row items-baseline gap-2 text-sm">
-                  <span>
-                    <FaRegCheckCircle />
-                  </span>
-                  Certification prep
-                </li>
-                <li className="flex flex-row gap-2 items-baseline  text-sm">
-                  <span>
-                    <FaRegCheckCircle />
-                  </span>
-                  Goal-focused recommendations
-                </li>
-                <li className="flex flex-row gap-2 items-baseline text-sm ">
-                  <span>
-                    <FaRegCheckCircle />
-                  </span>
-                  AI-powered coding exercises
-                </li>
-              </ul>
-            </div>
-          )}
-        </div>
-        {/* section 1.2 */}
-        <div className="border rounded-xl border-gray-400 overflow-hidden">
-          <div className=" bg-blue-50 p-7">
-            <div className="flex flex-row items-center justify-between">
-              <span className="font-semibold">Personal Plan</span>
-              <button
-                type="button"
-                aria-label="Show more"
-                className={`text-2xl focus:outline-none transition-transform duration-200 lg:hidden ${
-                  isOpen2 ? "rotate-180" : ""
-                }`}
-                onClick={toggleDiv2}
-              >
-                <MdKeyboardArrowDown />
-              </button>
-            </div>
-            <div className="text-sm text-gray-600">for you</div>
-            <div className="flex flex-row items-center gap-3 text-sm text-gray-600">
-              <MdOutlinePersonOutline />
-              <span>Personal Plan</span>
-            </div>
-          </div>
-          {/* section 1.2 */}
-          {isOpen2 && (
-            <div className=" p-7">
-              <h1>
-                Starting at <span>₹500</span> per month
-              </h1>
-              <p className="text-sm text-gray-500">
-                Billed monthly or annually. Cancel anytime.
-              </p>
-              <button className="mt-4 w-full bg-blue-600 text-white px-6 py-2 rounded-md font-semibold hover:bg-blue-700 active:scale-95 transition-all duration-200">
-                Start Free Trial
-              </button>
-              <ul className="mt-4 space-y-4">
-                <li className="flex flex-row gap-2 items-baseline text-sm ">
-                  <span>
-                    <FaRegCheckCircle />
-                  </span>
-                  Access to 26,000+ top courses
-                </li>
-                <li className="flex flex-row items-baseline gap-2 text-sm">
-                  <span>
-                    <FaRegCheckCircle />
-                  </span>
-                  Certification prep
-                </li>
-                <li className="flex flex-row gap-2 items-baseline  text-sm">
-                  <span>
-                    <FaRegCheckCircle />
-                  </span>
-                  Goal-focused recommendations
-                </li>
-                <li className="flex flex-row gap-2 items-baseline text-sm ">
-                  <span>
-                    <FaRegCheckCircle />
-                  </span>
-                  AI-powered coding exercises
-                </li>
-                <li className="flex flex-row gap-2 items-baseline text-sm ">
-                  <span>
-                    <FaRegCheckCircle />
-                  </span>
-                  Analytics and adoption reports
-                </li>
-              </ul>
-            </div>
-          )}
-        </div>
-        {/* section 1.3 */}
-        <div className="border rounded-xl border-gray-400 overflow-hidden">
-          <div className=" bg-blue-50 p-7">
-            <div className="flex flex-row items-center justify-between">
-              <span className="font-semibold">Personal Plan</span>
-              <button
-                type="button"
-                aria-label="Show more"
-                className={`text-2xl focus:outline-none transition-transform lg:hidden duration-200 ${
-                  isOpen3 ? "rotate-180" : ""
-                }`}
-                onClick={toggleDiv3}
-              >
-                <MdKeyboardArrowDown />
-              </button>
-            </div>
-            <div className="text-sm text-gray-600">for you</div>
-            <div className="flex flex-row items-center gap-3 text-sm text-gray-600">
-              <MdOutlinePersonOutline />
-              <span>Personal Plan</span>
-            </div>
-          </div>
-          {/* section 1.2 */}
-          {isOpen3 && (
-            <div className=" p-7">
-              <h1>
-                Starting at <span>₹500</span> per month
-              </h1>
-              <p className="text-sm text-gray-500">
-                Billed monthly or annually. Cancel anytime.
-              </p>
-              <button className="mt-4 w-full bg-blue-600 text-white px-6 py-2 rounded-md font-semibold hover:bg-blue-700 active:scale-95 transition-all duration-200">
-                Start Free Trial
-              </button>
-              <ul className="mt-4 space-y-4">
-                <li className="flex flex-row gap-2 items-baseline text-sm ">
-                  <span>
-                    <FaRegCheckCircle />
-                  </span>
-                  Access to 26,000+ top courses
-                </li>
-                <li className="flex flex-row items-baseline gap-2 text-sm">
-                  <span>
-                    <FaRegCheckCircle />
-                  </span>
-                  Certification prep
-                </li>
-                <li className="flex flex-row gap-2 items-baseline  text-sm">
-                  <span>
-                    <FaRegCheckCircle />
-                  </span>
-                  Goal-focused recommendations
-                </li>
-                <li className="flex flex-row gap-2 items-baseline text-sm ">
-                  <span>
-                    <FaRegCheckCircle />
-                  </span>
-                  AI-powered coding exercises
-                </li>
-                <li className="flex flex-row gap-2 items-baseline text-sm ">
-                  <span>
-                    <FaRegCheckCircle />
-                  </span>
-                  Dedicated customer success team
-                </li>
-                <li className="flex flex-row gap-2 items-baseline text-sm ">
-                  <span>
-                    <FaRegCheckCircle />
-                  </span>
-                  International course collection featuring 15 languages
-                </li>
-                <li className="flex flex-row gap-2 items-baseline text-sm ">
-                  <span>
-                    <FaRegCheckCircle />
-                  </span>
-                  Customizable content
-                </li>
-                <li className="flex flex-row gap-2 items-baseline text-sm ">
-                  <span>
-                    <FaRegCheckCircle />
-                  </span>
-                  Hands-on tech training with add-on
-                </li>
-              </ul>
-            </div>
-          )}
-        </div>
-      </div>
-      {/* section 17 */}
-      <div className="px-5 pt-5 md:px-10 lg:px-20 bg-blue-50  ">
-        {/* sec 1.1 */}
-        <div>
-          <h2 className="text-3xl font-semibold">
-            See what others are achieving through learning
-          </h2>
-        </div>
-        {/* sec 1.2 */}
-        <div className="flex flex-row gap-6 overflow-x-auto hide-scrollbar py-4">
-          <div className="bg-white p-10 rounded-lg space-y-8 max-w-96 min-w-[320px] flex-shrink-0">
-            <RiDoubleQuotesL className="text-2xl" />
-            <p>
-              Because of this course I was able to clear my two interviews...
-              Thanks for making such wonderful content.{" "}
-            </p>
-            <div>
-              <div className="flex flex-row items-center gap-2 mt-3">
-                <div className="bg-black w-10 h-10 flex items-center justify-center rounded-full">
-                  <h1 className="text-white text-base font-semibold">AV</h1>
-                </div>
-                <div>
-                  <h3 className="font-semibold">Aarav Bavir</h3>
-                  <p className="text-gray-500 text-sm">Software Engineer</p>
-                </div>
-              </div>
-            </div>
-            <div className="text-blue-600">Achieved dream job at TechCorp</div>
-          </div>
-          <div className="bg-white p-10 rounded-lg space-y-8 max-w-96 min-w-[320px] flex-shrink-0">
-            <RiDoubleQuotesL className="text-2xl" />
-            <p>
-              Because of this course I was able to clear my two interviews...
-              Thanks for making such wonderful content.{" "}
-            </p>
-            <div>
-              <div className="flex flex-row items-center gap-2 mt-3">
-                <div className="bg-black w-10 h-10 flex items-center justify-center rounded-full">
-                  <h1 className="text-white text-base font-semibold">AV</h1>
-                </div>
-                <div>
-                  <h3 className="font-semibold">Aarav Bavir</h3>
-                  <p className="text-gray-500 text-sm">Software Engineer</p>
-                </div>
-              </div>
-            </div>
-            <div className="text-blue-600">Achieved dream job at TechCorp</div>
-          </div>
-          <div className="bg-white p-10 rounded-lg space-y-8 max-w-96 min-w-[320px] flex-shrink-0">
-            <RiDoubleQuotesL className="text-2xl" />
-            <p>
-              Because of this course I was able to clear my two interviews...
-              Thanks for making such wonderful content.{" "}
-            </p>
-            <div>
-              <div className="flex flex-row items-center gap-2 mt-3">
-                <div className="bg-black w-10 h-10 flex items-center justify-center rounded-full">
-                  <h1 className="text-white text-base font-semibold">AV</h1>
-                </div>
-                <div>
-                  <h3 className="font-semibold">Aarav Bavir</h3>
-                  <p className="text-gray-500 text-sm">Software Engineer</p>
-                </div>
-              </div>
-            </div>
-            <div className="text-blue-600">Achieved dream job at TechCorp</div>
-          </div>
-          <div className="bg-white p-10 rounded-lg space-y-8 max-w-96 min-w-[320px] flex-shrink-0">
-            <RiDoubleQuotesL className="text-2xl" />
-            <p>
-              Because of this course I was able to clear my two interviews...
-              Thanks for making such wonderful content.{" "}
-            </p>
-            <div>
-              <div className="flex flex-row items-center gap-2 mt-3">
-                <div className="bg-black w-10 h-10 flex items-center justify-center rounded-full">
-                  <h1 className="text-white text-base font-semibold">AV</h1>
-                </div>
-                <div>
-                  <h3 className="font-semibold">Aarav Bavir</h3>
-                  <p className="text-gray-500 text-sm">Software Engineer</p>
-                </div>
-              </div>
-            </div>
-            <div className="text-blue-600">Achieved dream job at TechCorp</div>
-          </div>
-        </div>
-      </div>
-      {/* section 18 */}
-      <div className="px-5 pt-5 md:px-10 lg:px-20  ">
-        <div className="flex flex-row  items-center">
-          {/* section 1.1 */}
-          <div className=" space-y-4">
-            <h1 className="text-3xl font-semibold">AI for Business Leaders</h1>
-            <p>
-              Build an AI-habit for you and your team that builds hands-on
-              skills to help you lead effectively.
-            </p>
-            <button className="mt-4 border border-blue-600 text-blue-600 px-5 py-2 rounded-md font-semibold hover:bg-blue-50 active:scale-95 transition-all duration-150 flex items-center gap-2">
-              Start Learning <span className="text-lg">&rarr;</span>
-            </button>
-          </div>
-          {/* section 1.2 */}
-          <div>
-            <img src={stepImg} alt="noImage" />
-          </div>
-        </div>
+        {PricingPlans.map((data, index) => (
+          <PriceCard
+            key={index}
+            title={data.title}
+            tag={data.tag}
+            price={data.price}
+            billingInfo={data.billingInfo}
+            countOfMembers={data.countOfMembers}
+            btnLabel={data.btnLabel}
+            features={data.features}
+          />
+        ))}
       </div>
       {/* section 19 */}
-      <footer className="bg-gray-900 text-gray-200 py-10 px-5 md:px-10 lg:px-20 mt-10">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:justify-between gap-8">
-          {/* Logo and tagline */}
-          <div className="flex-1 mb-8 md:mb-0">
-            <img src={logo} alt="logo" className="h-10 mb-3" />
-            <p className="text-gray-400 text-sm">
-              Unlock your potential, one lesson at a time.
-            </p>
-          </div>
-          {/* Links */}
-          <div className="flex-1 grid grid-cols-2 md:grid-cols-3 gap-6">
-            <div>
-              <h3 className="font-semibold mb-2">Company</h3>
-              <ul className="space-y-1 text-sm">
-                <li>
-                  <a href="#" className="hover:text-blue-400 transition">
-                    About
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-blue-400 transition">
-                    Careers
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-blue-400 transition">
-                    Blog
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-semibold mb-2">Support</h3>
-              <ul className="space-y-1 text-sm">
-                <li>
-                  <a href="#" className="hover:text-blue-400 transition">
-                    Help Center
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-blue-400 transition">
-                    Contact Us
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-blue-400 transition">
-                    FAQs
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-semibold mb-2">Legal</h3>
-              <ul className="space-y-1 text-sm">
-                <li>
-                  <a href="#" className="hover:text-blue-400 transition">
-                    Terms of Service
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-blue-400 transition">
-                    Privacy Policy
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-blue-400 transition">
-                    Cookie Policy
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          {/* Newsletter */}
-          <div className="flex-1">
-            <h3 className="font-semibold mb-2">Subscribe to our newsletter</h3>
-            <form className="flex flex-col sm:flex-row gap-2">
-              <input
-                type="email"
-                placeholder="Your email"
-                className="px-3 py-2 rounded bg-gray-800 text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-              <button
-                type="submit"
-                className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded font-semibold transition"
-              >
-                Subscribe
-              </button>
-            </form>
-          </div>
-        </div>
-        <div className="border-t border-gray-700 mt-8 pt-6 text-center text-xs text-gray-500">
-          © {new Date().getFullYear()} Acdmx eLearn. All rights reserved.
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };

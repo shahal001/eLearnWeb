@@ -10,6 +10,7 @@ export default {
       fontFamily: {
         playfair: ['"Playfair Display"', "serif"],
         rubik: ['"Rubik"', "sans-serif"],
+        lato: ['"Lato"', "sans-serif"],
       },
     },
   },

@@ -1,6 +1,6 @@
 import { IoIosStar } from "react-icons/io";
 
-interface HalfBorderCardProps {
+interface BorderLessCardProps {
   image: string;
   heading: string;
   mentors: string;
@@ -9,7 +9,7 @@ interface HalfBorderCardProps {
   price: string;
   sellStatus: string;
 }
-function HalfBorderCard({
+function BorderLessCard({
   image,
   heading,
   mentors,
@@ -17,7 +17,7 @@ function HalfBorderCard({
   offerPrice,
   price,
   sellStatus,
-}: HalfBorderCardProps) {
+}: BorderLessCardProps) {
   return (
     <div className="min-w-[220px] md:min-w-[250px] max-w-[250px] bg-white rounded-lg shadow-sm">
       <img
@@ -25,7 +25,7 @@ function HalfBorderCard({
         src={image}
         alt="card image"
       />
-      <div className="border border-t-0 border-gray-300 rounded-b-lg p-3">
+      <div className=" rounded-b-lg py-2">
         <h1
           className="text-sm font-semibold text-gray-800 mb-1"
           style={{
@@ -58,4 +58,4 @@ function HalfBorderCard({
   );
 }
 
-export default HalfBorderCard;
+export default BorderLessCard;

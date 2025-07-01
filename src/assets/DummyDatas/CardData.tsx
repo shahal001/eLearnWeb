@@ -1,5 +1,6 @@
 export const cardData = [
   {
+    id: "1",
     image:
       "https://academylms.net/wp-content/uploads/2022/09/Structure-of-Online-Courses.png",
     heading: "Frontend Mastery",
@@ -8,6 +9,7 @@ export const cardData = [
     hours: "75 total hours",
   },
   {
+    id: "2",
     image:
       "https://www.thetilt.com/wp-content/uploads/2021/12/Online-Course-2.jpeg",
     heading: "Backend Engineering",
@@ -16,6 +18,7 @@ export const cardData = [
     hours: "92 total hours",
   },
   {
+    id: "3",
     image:
       "https://d8it4huxumps7.cloudfront.net/bites/wp-content/uploads/2020/06/26195634/Swayam-brings-to-you-free-online-courses-to-catapult-your-career.png",
     heading: "DevOps Essentials",

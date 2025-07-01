@@ -27,8 +27,11 @@ import {
 import ScrollFiltere from "../components/ScrollFiltere";
 import PriceCard from "../components/PriceCard";
 import Footer from "../components/Footer";
+import { useNavigate } from "react-router-dom";
 
 const Home: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
     <div>
       <Navbar />
@@ -124,6 +127,7 @@ const Home: React.FC = () => {
         {cardData.map((card, idx) => (
           <FullBorderCard
             key={idx}
+            id={card.id}
             image={card.image}
             heading={card.heading}
             rating={card.rating}
@@ -133,7 +137,10 @@ const Home: React.FC = () => {
         ))}
 
         <div className="pt-3 flex flex-col sm:flex-row gap-3 w-full md:w-auto">
-          <button className="px-7 py-3 border border-blue-600 text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition-all duration-200">
+          <button
+            onClick={() => navigate("/courseDetail")}
+            className="px-7 py-3 border border-blue-600 text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition-all duration-200"
+          >
             Show all courses
           </button>
         </div>

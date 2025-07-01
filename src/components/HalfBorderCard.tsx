@@ -1,4 +1,5 @@
 import { IoIosStar } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
 
 interface HalfBorderCardProps {
   image: string;
@@ -18,8 +19,13 @@ function HalfBorderCard({
   price,
   sellStatus,
 }: HalfBorderCardProps) {
+  const navigate = useNavigate();
   return (
-    <div className="min-w-[220px] md:min-w-[250px] max-w-[250px] bg-white rounded-lg shadow-sm">
+    <div
+      role="button"
+      onClick={() => navigate("/courseDetail")}
+      className="cursor-pointer min-w-[220px] md:min-w-[250px] max-w-[250px] bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow"
+    >
       <img
         className="w-full h-32 object-cover rounded-t-lg"
         src={image}

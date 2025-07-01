@@ -21,6 +21,7 @@ import { useState } from "react";
 import { TfiMedall } from "react-icons/tfi";
 import { FaCirclePlay } from "react-icons/fa6";
 import { FiStar } from "react-icons/fi";
+import BorderButton from "../components/BorderButton";
 
 function CourseDetail() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -109,7 +110,7 @@ function CourseDetail() {
           11 hours left at this price!
         </div>
         <SolidButton buttonText="Add to Cart" />
-        <SolidButton buttonText="Buy Now" />
+        <BorderButton buttonText="Buy Now" />
         <div className="border-2 p-4 text-lg space-y-4">
           <h1 className="font-semibold">What you'll learn</h1>
           <ul className="list-disc list-inside text-sm text-gray-800">

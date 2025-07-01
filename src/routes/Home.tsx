@@ -7,7 +7,6 @@ import { IoIosStar } from "react-icons/io";
 import { FiTarget } from "react-icons/fi";
 import { PiCertificateLight } from "react-icons/pi";
 import { FiStar } from "react-icons/fi";
-import { MdKeyboardArrowDown } from "react-icons/md";
 import { MdOutlinePersonOutline } from "react-icons/md";
 import { FaRegCheckCircle } from "react-icons/fa";
 import { RiDoubleQuotesL } from "react-icons/ri";

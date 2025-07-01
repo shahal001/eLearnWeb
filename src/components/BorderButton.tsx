@@ -1,8 +1,12 @@
-function BorderButton() {
+interface BorderButtonProps {
+  buttonText: string;
+}
+
+function BorderButton({ buttonText }: BorderButtonProps) {
   return (
-    <div className="my-5 px-5 md:px-10 lg:px-15 flex flex-row gap-2 overflow-x-auto hide-scrollbar">
-      <button className="border border-blue-600 text-blue-600 px-4 py-2 rounded-md font-bold mt-2 hover:bg-blue-50 active:scale-95 transition-all duration-150">
-        Show all Machine Learning courses
+    <div className="w-full">
+      <button className="w-full px-6 py-3 sm:px-4 mt-2 rounded-md font-semibold text-blue-600 border border-blue-600 text-sm sm:text-base transition-all duration-200 shadow hover:bg-blue-50 active:scale-95">
+        {buttonText}
       </button>
     </div>
   );

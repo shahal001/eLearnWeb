@@ -1,5 +1,5 @@
 import Navbar from "../components/Navbar";
-import ProductTag from "../components/productTag";
+import ProductTag from "../components/ProductTag";
 import { BsPatchExclamation } from "react-icons/bs";
 import { SlGlobe } from "react-icons/sl";
 import { MdOutlineSubtitles } from "react-icons/md";

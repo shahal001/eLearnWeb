@@ -400,3 +400,298 @@ export const infiniteAutoScrolling = [
     alt: "Ericsson",
   },
 ];
+
+export const whatYouLearn = {
+  heading: "What You'll Learn",
+  points: [
+    "Build responsive UIs using React and Tailwind CSS",
+    "Understand the fundamentals of TypeScript in web development",
+    "Create custom hooks for stateful logic reuse",
+    "Optimize development workflow with Vite and SWC",
+    "Integrate Google Fonts for sleek and modern typography",
+    "Apply modular file structure principles for scalability",
+    "Generate and use dummy data for prototyping",
+    "Implement secure user authentication and route protection",
+    "Design accessible components that support all users",
+    "Deploy your full-stack app with performance best practices",
+  ],
+};
+
+export const courseReviews = [
+  {
+    rating: "4.8",
+    ratingCount: "1,245",
+    nameOfPerson: "Luigi S. F",
+    postTime: "1 week ago",
+    shortReview: "Engaging content but editing can be dizzying",
+    fullReview:
+      "The course had plenty of helpful, and up-to-date, content. The initial chapters about prompting and the technology behind ChatGPT are insightful. However, the editing with cuts every 3–5 seconds is often distracting and can cause motion sickness.",
+  },
+  {
+    rating: "4.5",
+    ratingCount: "987",
+    nameOfPerson: "Angela T",
+    postTime: "3 days ago",
+    shortReview: "Well-paced and informative",
+    fullReview:
+      "I appreciated how structured each module was. The instructor explained concepts with clarity, and the projects helped reinforce the theory. Great introduction to advanced tools.",
+  },
+  {
+    rating: "4.9",
+    ratingCount: "2,341",
+    nameOfPerson: "Ravi Kumar",
+    postTime: "2 weeks ago",
+    shortReview: "Excellent explanation and real-world examples",
+    fullReview:
+      "Every chapter added immense value. The real-world examples really drove home complex concepts, making them easy to understand. Highly recommended for visual learners.",
+  },
+  {
+    rating: "4.7",
+    ratingCount: "1,029",
+    nameOfPerson: "Chloe M",
+    postTime: "5 days ago",
+    shortReview: "Loved the visuals and demo sessions",
+    fullReview:
+      "The design and structure of the content made the course incredibly enjoyable. Demos were well-timed and practical. I'd love to see more content from this instructor!",
+  },
+  {
+    rating: "5.0",
+    ratingCount: "3,122",
+    nameOfPerson: "Devansh R",
+    postTime: "just now",
+    shortReview: "The best course I’ve taken this year",
+    fullReview:
+      "This course gave me confidence to explore AI tools effectively. It was packed with insights and presented in an engaging style. Everything felt up-to-date and inspiring.",
+  },
+];
+
+export const courseMentors = [
+  {
+    id: 1,
+    name: "Dr. Angela Yu",
+    designation: "Developer and Lead Instructor",
+    image: "https://img-c.udemycdn.com/user/200_H/26547450_0400_3.jpg",
+    rating: "4.5 Instructor Rating",
+    reviews: "61,362 Reviews",
+    students: "497,908 Students",
+    courses: "7 Courses",
+    bio: `Dr. Yu is a passionate instructor known for making complex coding concepts fun and accessible. With a strong background in mobile and web development, she's helped hundreds of thousands of learners around the world build real-world skills.`,
+    profileLink: "#",
+  },
+  {
+    id: 2,
+    name: "Max Schwarzmüller",
+    designation: "Full-Stack Developer & Instructor",
+    image: "https://img-c.udemycdn.com/user/200_H/4466306_6fd8_3.jpg",
+    rating: "4.7 Instructor Rating",
+    reviews: "145,213 Reviews",
+    students: "1,234,567 Students",
+    courses: "12 Courses",
+    bio: `Max blends engineering rigor with a deep love for teaching. His courses on frontend and backend technologies consistently rank among the highest-rated for their clarity, structure, and practicality.`,
+    profileLink: "#",
+  },
+  {
+    id: 3,
+    name: "Colt Steele",
+    designation: "Web Developer & Bootcamp Instructor",
+    image: "https://img-c.udemycdn.com/user/200_H/4466306_6fd8_3.jpg",
+    rating: "4.8 Instructor Rating",
+    reviews: "200,450 Reviews",
+    students: "980,345 Students",
+    courses: "9 Courses",
+    bio: `Colt is well-known for his engaging and beginner-friendly teaching style. He's taught tens of thousands of students and is especially popular for his hands-on approach in full-stack web development.`,
+    profileLink: "#",
+  },
+];
+
+export const courseDescription = {
+  heading: "Description",
+  paragraph:
+    "In today’s fast-paced digital world, staying ahead requires continuous learning and adaptability. Our platform offers expertly designed courses taught by experienced professionals who understand the latest trends and technologies. With hands-on projects, real-world case studies, and personalized feedback, you’ll build practical skills that employers value. Start your learning journey today and transform your career trajectory with confidence and clarity.",
+};
+
+export const courseContentData = [
+  {
+    title: "The Complete AI Guide Introduction",
+    videos: [
+      {
+        label: "Welcome to the Course",
+        urlLink: "https://www.youtube.com/watch?v=rZ41y93P2Qo",
+      },
+      {
+        label: "What You’ll Learn",
+        urlLink: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      },
+      {
+        label: "Meet Your Instructor",
+        urlLink: "https://www.youtube.com/watch?v=3fumBcKC6RE",
+      },
+    ],
+  },
+  {
+    title: "Fundamentals of Machine Learning",
+    videos: [
+      {
+        label: "Supervised vs Unsupervised Learning",
+        urlLink: "https://www.youtube.com/watch?v=Gv9_4yMHFhI",
+      },
+      {
+        label: "Overfitting and Underfitting",
+        urlLink: "https://www.youtube.com/watch?v=1r9l8PSs4jk",
+      },
+      {
+        label: "Model Evaluation Metrics",
+        urlLink: "https://www.youtube.com/watch?v=85dtiMz9tSo",
+      },
+    ],
+  },
+  {
+    title: "Deep Learning Essentials",
+    videos: [
+      {
+        label: "Introduction to Neural Networks",
+        urlLink: "https://www.youtube.com/watch?v=aircAruvnKk",
+      },
+      {
+        label: "Backpropagation Explained",
+        urlLink: "https://www.youtube.com/watch?v=Ilg3gGewQ5U",
+      },
+    ],
+  },
+  {
+    title: "Getting Started with Machine Learning",
+    videos: [
+      {
+        label: "Course Overview",
+        urlLink: "https://www.youtube.com/watch?v=abc123def01",
+      },
+      {
+        label: "Setting Up Your Environment",
+        urlLink: "https://www.youtube.com/watch?v=abc123def02",
+      },
+      {
+        label: "First Steps in ML",
+        urlLink: "https://www.youtube.com/watch?v=abc123def03",
+      },
+    ],
+  },
+  {
+    title: "Introduction to Web Development",
+    videos: [
+      {
+        label: "Welcome!",
+        urlLink: "https://www.youtube.com/watch?v=xyz456ghi01",
+      },
+      {
+        label: "Tools You’ll Need",
+        urlLink: "https://www.youtube.com/watch?v=xyz456ghi02",
+      },
+      {
+        label: "Your First Web Page",
+        urlLink: "https://www.youtube.com/watch?v=xyz456ghi03",
+      },
+    ],
+  },
+  {
+    title: "Beginner’s Guide to Python",
+    videos: [
+      {
+        label: "Introduction & Setup",
+        urlLink: "https://www.youtube.com/watch?v=python001",
+      },
+      {
+        label: "Basic Syntax",
+        urlLink: "https://www.youtube.com/watch?v=python002",
+      },
+      {
+        label: "Writing Your First Program",
+        urlLink: "https://www.youtube.com/watch?v=python003",
+      },
+    ],
+  },
+  {
+    title: "Exploring Data Science",
+    videos: [
+      {
+        label: "Course Kickoff",
+        urlLink: "https://www.youtube.com/watch?v=data001",
+      },
+      {
+        label: "The Data Science Pipeline",
+        urlLink: "https://www.youtube.com/watch?v=data002",
+      },
+      {
+        label: "Key Concepts",
+        urlLink: "https://www.youtube.com/watch?v=data003",
+      },
+    ],
+  },
+  {
+    title: "Intro to UI/UX Design",
+    videos: [
+      {
+        label: "What is UI/UX?",
+        urlLink: "https://www.youtube.com/watch?v=uiux001",
+      },
+      {
+        label: "Design Thinking Basics",
+        urlLink: "https://www.youtube.com/watch?v=uiux002",
+      },
+      {
+        label: "Tools of the Trade",
+        urlLink: "https://www.youtube.com/watch?v=uiux003",
+      },
+    ],
+  },
+  {
+    title: "Foundations of React",
+    videos: [
+      {
+        label: "Why React?",
+        urlLink: "https://www.youtube.com/watch?v=react001",
+      },
+      {
+        label: "Component Basics",
+        urlLink: "https://www.youtube.com/watch?v=react002",
+      },
+      {
+        label: "JSX Explained",
+        urlLink: "https://www.youtube.com/watch?v=react003",
+      },
+    ],
+  },
+  {
+    title: "Understanding Tailwind CSS",
+    videos: [
+      {
+        label: "Tailwind Overview",
+        urlLink: "https://www.youtube.com/watch?v=tailwind001",
+      },
+      {
+        label: "Utility-First Workflow",
+        urlLink: "https://www.youtube.com/watch?v=tailwind002",
+      },
+      {
+        label: "Styling a Page",
+        urlLink: "https://www.youtube.com/watch?v=tailwind003",
+      },
+    ],
+  },
+  {
+    title: "Building Modern Web Apps",
+    videos: [
+      {
+        label: "Frontend vs Backend",
+        urlLink: "https://www.youtube.com/watch?v=webapp001",
+      },
+      {
+        label: "Architecture Choices",
+        urlLink: "https://www.youtube.com/watch?v=webapp002",
+      },
+      {
+        label: "Best Practices",
+        urlLink: "https://www.youtube.com/watch?v=webapp003",
+      },
+    ],
+  },
+];

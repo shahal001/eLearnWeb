@@ -73,7 +73,10 @@ const Home: React.FC = () => {
             <button className="px-7 py-3 bg-blue-600 text-white rounded-lg font-semibold shadow hover:bg-blue-700 transition-all duration-200">
               Start 7-day Free Trial
             </button>
-            <button className="px-7 py-3 border border-blue-600 text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition-all duration-200">
+            <button
+              onClick={() => navigate("/search")}
+              className="px-7 py-3 border border-blue-600 text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition-all duration-200"
+            >
               Browse Courses
             </button>
           </div>

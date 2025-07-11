@@ -3,12 +3,20 @@ import { MdOutlineFilterList } from "react-icons/md";
 import { FiStar } from "react-icons/fi";
 import { useState } from "react";
 import { IoClose } from "react-icons/io5";
+import SearchScreenCard from "../components/courseSearch/SearchScreenCard";
+import { courseCards } from "../assets/DummyDatas/SearchCourse";
 
 function Search() {
   const [sortModal, setSortModal] = useState(false);
+  const [filterModal, setFilterModal] = useState(false);
+  const [searchQuery, setSearchQuery] = useState(true);
+
+  const toggleModal = () => {
+    setSearchQuery((prev) => !prev);
+  };
 
   return (
-    <div className="h-screen flex flex-col">
+    <div className="lg:px-20 h-screen flex flex-col">
       <Navbar />
 
       {/* Content area */}
@@ -16,11 +24,60 @@ function Search() {
         {/* static */}
         <div className="px-3 py-4 flex flex-row items-center justify-between bg-white rounded-md shadow-sm">
           {/* Filter Button with Icon */}
-          <button className="flex items-center gap-2 px-4 py-2 text-sm sm:text-base border border-blue-600 text-blue-600 rounded-md font-semibold hover:bg-blue-50 transition-all duration-200">
+          <button
+            onClick={() => setFilterModal(true)}
+            className="lg:hidden flex items-center gap-2 px-4 py-2 text-sm sm:text-base border border-blue-600 text-blue-600 rounded-md font-semibold hover:bg-blue-50 transition-all duration-200"
+          >
             Filter
             <MdOutlineFilterList className="text-lg" />
           </button>
-          
+          {/* filter modal */}
+          {filterModal && (
+            <div className="fixed inset-0 z-50 bg-black bg-opacity-50 flex items-center justify-center">
+              <div className="w-screen h-screen bg-white relative px-6 py-8 overflow-y-auto">
+                {/* Header */}
+                <div className="flex justify-between items-center mb-6">
+                  <h2 className="text-xl font-semibold">Filter By :</h2>
+                  <button
+                    className="flex items-center gap-2 text-gray-600 hover:text-black transition"
+                    onClick={() => setFilterModal(false)}
+                  >
+                    <span className="text-sm font-medium">Close</span>
+                    <IoClose className="text-2xl" />
+                  </button>
+                </div>
+
+                {/* Your filtering content goes here */}
+                <div>
+                  <div
+                    onClick={toggleModal}
+                    className="bg-blue-300 p-2 cursor-pointer"
+                  >
+                    Subject
+                  </div>
+
+                  {searchQuery && (
+                    <div className="flex flex-col gap-2 mt-2">
+                      {[
+                        "Data Science",
+                        "Information Technology",
+                        "Computer Science",
+                        "Business",
+                      ].map((subject) => (
+                        <label
+                          key={subject}
+                          className="flex items-center space-x-2"
+                        >
+                          <input type="checkbox" />
+                          <span>{subject}</span>
+                        </label>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+          )}
 
           {/* Sort Text */}
           <div
@@ -48,378 +105,86 @@ function Search() {
         )}
 
         {/* scroll down section */}
-        <div className="h-full px-1 py-4 half-md:grid half-md:grid-cols-2 gap-2 lg:grid-cols-3">
-          {/* card 1 */}
-          <div className="flex flex-row half-md:flex-col-reverse border rounded-lg p-4 bg-white shadow-sm  w-full max-w-3xl">
-            {/* Left Content */}
-            <div className="flex flex-col space-y-2 flex-1">
-              {/* Free Trial Badge */}
-              <span className="border border-black text-xs font-semibold rounded-full py-0.5 px-2 w-fit">
-                Free Trial
-              </span>
-
-              {/* Logo and Provider */}
-              <div className="flex items-center space-x-2">
-                <img
-                  src="https://learnatadistance.files.wordpress.com/2020/08/external-content.duckduckgo.com_.png"
-                  alt="IBM logo"
-                  className="w-5 h-5 object-contain"
-                />
-                <span className="text-sm font-medium text-gray-800">IBM</span>
-              </div>
-
-              {/* Course Title */}
-              <h2 className="text-base md:text-lg font-bold text-gray-900 leading-snug">
-                Introduction to Artificial Intelligence (AI)
-              </h2>
-
-              {/* Skills */}
-              <p className="text-sm text-gray-700 line-clamp-3">
-                <span className="font-semibold">Skills you will gain:</span>{" "}
-                Generative AI, ChatGPT, Natural Language Processing, Data
-                Governance, Computer Science, Business Intelligence, Business
-                Ethics, Robotic Process Automation, Content Creation, Risk
-                Mitigation
-              </p>
-
-              {/* Rating and Views */}
-              <div className="flex items-center space-x-2 text-sm text-gray-700">
-                <div className="flex items-center space-x-1">
-                  <FiStar className="text-yellow-500" />
-                  <span className="font-semibold">4.7</span>
-                </div>
-                <span className="text-gray-400">•</span>
-                <span>20K views</span>
-              </div>
-
-              {/* Course Meta */}
-              <div className="flex items-center space-x-2 text-sm text-gray-600">
-                <span className="font-medium">Beginner</span>
-                <span className="text-gray-400">•</span>
-                <span>Course</span>
-                <span className="text-gray-400">•</span>
-                <span>1–4 Weeks</span>
-              </div>
+        <div className=" lg:flex h-full px-1 py-4 ">
+          <div className="hidden lg:block  lg:w-[20%] lg:sticky lg:h-screen lg:top-0 ">
+            {/* section1 */}
+            <div className="font-semibold text-md">subject</div>
+            <div className="flex flex-col gap-2 mt-2">
+              {[
+                "Data Science",
+                "Information Technology",
+                "Computer Science",
+                "Business",
+              ].map((subject) => (
+                <label key={subject} className="flex items-center space-x-2">
+                  <input type="checkbox" className="w-5 h-5 accent-gray-500" />
+                  <span>{subject}</span>
+                </label>
+              ))}
             </div>
-
-            {/* Right Image */}
-            <div className=" max-w-xs sm:max-w-sm half-md::max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl mx-auto">
-              <img
-                src="https://learnatadistance.files.wordpress.com/2020/08/external-content.duckduckgo.com_.png"
-                alt="Course preview"
-                className="w-20 h-20 half-md:w-auto half-md:h-48 rounded-md object-cover"
-              />
+            {/* section2 */}
+            <div className="font-semibold text-md">New Courses</div>
+            <div className="flex flex-col gap-2 mt-2">
+              {[
+                "Artificial Intelligence",
+                "Machine Learning",
+                "Data Science",
+                "Deep Learning",
+              ].map((subject) => (
+                <label key={subject} className="flex items-center space-x-2">
+                  <input type="checkbox" className="w-5 h-5 accent-gray-500" />
+                  <span>{subject}</span>
+                </label>
+              ))}
             </div>
-          </div>
-          {/* card 2 */}
-          <div className="flex flex-row half-md:flex-col-reverse border rounded-lg p-4 bg-white shadow-sm w-full max-w-3xl">
-            {/* Left Content */}
-            <div className="flex flex-col space-y-2 flex-1">
-              {/* Free Trial Badge */}
-              <span className="border border-black text-xs font-semibold rounded-full py-0.5 px-2 w-fit">
-                Free Trial
-              </span>
-
-              {/* Logo and Provider */}
-              <div className="flex items-center space-x-2">
-                <img
-                  src="https://tse2.mm.bing.net/th/id/OIP.Bs2PlI-wmfFiYzgWNRO0pgHaDO?pid=Api&P=0&h=180"
-                  alt="IBM logo"
-                  className="w-5 h-5 object-contain"
-                />
-                <span className="text-sm font-medium text-gray-800">IBM</span>
-              </div>
-
-              {/* Course Title */}
-              <h2 className="text-base md:text-lg font-bold text-gray-900 leading-snug">
-                Introduction to Artificial Intelligence (AI)
-              </h2>
-
-              {/* Skills */}
-              <p className="text-sm text-gray-700 line-clamp-3">
-                <span className="font-semibold">Skills you will gain:</span>{" "}
-                Generative AI, ChatGPT, Natural Language Processing, Data
-                Governance, Computer Science, Business Intelligence, Business
-                Ethics, Robotic Process Automation, Content Creation, Risk
-                Mitigation
-              </p>
-
-              {/* Rating and Views */}
-              <div className="flex items-center space-x-2 text-sm text-gray-700">
-                <div className="flex items-center space-x-1">
-                  <FiStar className="text-yellow-500" />
-                  <span className="font-semibold">4.7</span>
-                </div>
-                <span className="text-gray-400">•</span>
-                <span>20K views</span>
-              </div>
-
-              {/* Course Meta */}
-              <div className="flex items-center space-x-2 text-sm text-gray-600">
-                <span className="font-medium">Beginner</span>
-                <span className="text-gray-400">•</span>
-                <span>Course</span>
-                <span className="text-gray-400">•</span>
-                <span>1–4 Weeks</span>
-              </div>
+            {/* section3 */}
+            <div className="font-semibold text-md">New Courses</div>
+            <div className="flex flex-col gap-2 mt-2">
+              {[
+                "Artificial Intelligence",
+                "Machine Learning",
+                "Data Science",
+                "Deep Learning",
+              ].map((subject) => (
+                <label key={subject} className="flex items-center space-x-2">
+                  <input type="checkbox" className="w-5 h-5 accent-gray-500" />
+                  <span>{subject}</span>
+                </label>
+              ))}
             </div>
-
-            {/* Right Image */}
-            <div className=" max-w-xs sm:max-w-sm half-md::max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl mx-auto">
-              <img
-                src="https://learnatadistance.files.wordpress.com/2020/08/external-content.duckduckgo.com_.png"
-                alt="Course preview"
-                className="w-20 h-20 half-md:w-auto half-md:h-48 rounded-md object-cover"
-              />
+            {/* section4 */}
+            <div className="font-semibold text-md">New Courses</div>
+            <div className="flex flex-col gap-2 mt-2">
+              {[
+                "Artificial Intelligence",
+                "Machine Learning",
+                "Data Science",
+                "Deep Learning",
+              ].map((subject) => (
+                <label key={subject} className="flex items-center space-x-2">
+                  <input type="checkbox" className="w-5 h-5 accent-gray-500" />
+                  <span>{subject}</span>
+                </label>
+              ))}
             </div>
           </div>
-          {/* card 3 */}
-          <div className="flex flex-row half-md:flex-col-reverse border rounded-lg p-4 bg-white shadow-sm  w-full max-w-3xl">
-            {/* Left Content */}
-            <div className="flex flex-col space-y-2 flex-1">
-              {/* Free Trial Badge */}
-              <span className="border border-black text-xs font-semibold rounded-full py-0.5 px-2 w-fit">
-                Free Trial
-              </span>
-
-              {/* Logo and Provider */}
-              <div className="flex items-center space-x-2">
-                <img
-                  src="https://tse2.mm.bing.net/th/id/OIP.Bs2PlI-wmfFiYzgWNRO0pgHaDO?pid=Api&P=0&h=180"
-                  alt="IBM logo"
-                  className="w-5 h-5 object-contain"
-                />
-                <span className="text-sm font-medium text-gray-800">IBM</span>
-              </div>
-
-              {/* Course Title */}
-              <h2 className="text-base md:text-lg font-bold text-gray-900 leading-snug">
-                Introduction to Artificial Intelligence (AI)
-              </h2>
-
-              {/* Skills */}
-              <p className="text-sm text-gray-700 line-clamp-3">
-                <span className="font-semibold">Skills you will gain:</span>{" "}
-                Generative AI, ChatGPT, Natural Language Processing, Data
-                Governance, Computer Science, Business Intelligence, Business
-                Ethics, Robotic Process Automation, Content Creation, Risk
-                Mitigation
-              </p>
-
-              {/* Rating and Views */}
-              <div className="flex items-center space-x-2 text-sm text-gray-700">
-                <div className="flex items-center space-x-1">
-                  <FiStar className="text-yellow-500" />
-                  <span className="font-semibold">4.7</span>
-                </div>
-                <span className="text-gray-400">•</span>
-                <span>20K views</span>
-              </div>
-
-              {/* Course Meta */}
-              <div className="flex items-center space-x-2 text-sm text-gray-600">
-                <span className="font-medium">Beginner</span>
-                <span className="text-gray-400">•</span>
-                <span>Course</span>
-                <span className="text-gray-400">•</span>
-                <span>1–4 Weeks</span>
-              </div>
-            </div>
-
-            {/* Right Image */}
-            <div className=" max-w-xs sm:max-w-sm half-md::max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl mx-auto">
-              <img
-                src="https://learnatadistance.files.wordpress.com/2020/08/external-content.duckduckgo.com_.png"
-                alt="Course preview"
-                className="w-20 h-20 half-md:w-auto half-md:h-48 rounded-md object-cover"
+          <div className="lg:w-[80%]  half-md:grid half-md:grid-cols-2 gap-2 lg:grid-cols-3">
+            {courseCards.map((data, idx) => (
+              <SearchScreenCard
+                key={idx}
+                badge={data.badge}
+                logo={data.logo}
+                provider={data.provider}
+                title={data.title}
+                skills={data.skills}
+                rating={data.rating}
+                views={data.views}
+                level={data.level}
+                type={data.type}
+                duration={data.duration}
+                preview={data.preview}
               />
-            </div>
-          </div>
-          {/* card 4 */}
-          <div className="flex flex-row half-md:flex-col-reverse border rounded-lg p-4 bg-white shadow-sm  w-full max-w-3xl">
-            {/* Left Content */}
-            <div className="flex flex-col space-y-2 flex-1">
-              {/* Free Trial Badge */}
-              <span className="border border-black text-xs font-semibold rounded-full py-0.5 px-2 w-fit">
-                Free Trial
-              </span>
-
-              {/* Logo and Provider */}
-              <div className="flex items-center space-x-2">
-                <img
-                  src="https://tse2.mm.bing.net/th/id/OIP.Bs2PlI-wmfFiYzgWNRO0pgHaDO?pid=Api&P=0&h=180"
-                  alt="IBM logo"
-                  className="w-5 h-5 object-contain"
-                />
-                <span className="text-sm font-medium text-gray-800">IBM</span>
-              </div>
-
-              {/* Course Title */}
-              <h2 className="text-base md:text-lg font-bold text-gray-900 leading-snug">
-                Introduction to Artificial Intelligence (AI)
-              </h2>
-
-              {/* Skills */}
-              <p className="text-sm text-gray-700 line-clamp-3">
-                <span className="font-semibold">Skills you will gain:</span>{" "}
-                Generative AI, ChatGPT, Natural Language Processing, Data
-                Governance, Computer Science, Business Intelligence, Business
-                Ethics, Robotic Process Automation, Content Creation, Risk
-                Mitigation
-              </p>
-
-              {/* Rating and Views */}
-              <div className="flex items-center space-x-2 text-sm text-gray-700">
-                <div className="flex items-center space-x-1">
-                  <FiStar className="text-yellow-500" />
-                  <span className="font-semibold">4.7</span>
-                </div>
-                <span className="text-gray-400">•</span>
-                <span>20K views</span>
-              </div>
-
-              {/* Course Meta */}
-              <div className="flex items-center space-x-2 text-sm text-gray-600">
-                <span className="font-medium">Beginner</span>
-                <span className="text-gray-400">•</span>
-                <span>Course</span>
-                <span className="text-gray-400">•</span>
-                <span>1–4 Weeks</span>
-              </div>
-            </div>
-
-            {/* Right Image */}
-            <div className=" max-w-xs sm:max-w-sm half-md::max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl mx-auto">
-              <img
-                src="https://learnatadistance.files.wordpress.com/2020/08/external-content.duckduckgo.com_.png"
-                alt="Course preview"
-                className="w-20 h-20 half-md:w-auto half-md:h-48 rounded-md object-cover"
-              />
-            </div>
-          </div>
-          {/* card 5 */}
-          <div className="flex flex-row half-md:flex-col-reverse border rounded-lg p-4 bg-white shadow-sm  w-full max-w-3xl">
-            {/* Left Content */}
-            <div className="flex flex-col space-y-2 flex-1">
-              {/* Free Trial Badge */}
-              <span className="border border-black text-xs font-semibold rounded-full py-0.5 px-2 w-fit">
-                Free Trial
-              </span>
-
-              {/* Logo and Provider */}
-              <div className="flex items-center space-x-2">
-                <img
-                  src="https://tse2.mm.bing.net/th/id/OIP.Bs2PlI-wmfFiYzgWNRO0pgHaDO?pid=Api&P=0&h=180"
-                  alt="IBM logo"
-                  className="w-5 h-5 object-contain"
-                />
-                <span className="text-sm font-medium text-gray-800">IBM</span>
-              </div>
-
-              {/* Course Title */}
-              <h2 className="text-base md:text-lg font-bold text-gray-900 leading-snug">
-                Introduction to Artificial Intelligence (AI)
-              </h2>
-
-              {/* Skills */}
-              <p className="text-sm text-gray-700 line-clamp-3">
-                <span className="font-semibold">Skills you will gain:</span>{" "}
-                Generative AI, ChatGPT, Natural Language Processing, Data
-                Governance, Computer Science, Business Intelligence, Business
-                Ethics, Robotic Process Automation, Content Creation, Risk
-                Mitigation
-              </p>
-
-              {/* Rating and Views */}
-              <div className="flex items-center space-x-2 text-sm text-gray-700">
-                <div className="flex items-center space-x-1">
-                  <FiStar className="text-yellow-500" />
-                  <span className="font-semibold">4.7</span>
-                </div>
-                <span className="text-gray-400">•</span>
-                <span>20K views</span>
-              </div>
-
-              {/* Course Meta */}
-              <div className="flex items-center space-x-2 text-sm text-gray-600">
-                <span className="font-medium">Beginner</span>
-                <span className="text-gray-400">•</span>
-                <span>Course</span>
-                <span className="text-gray-400">•</span>
-                <span>1–4 Weeks</span>
-              </div>
-            </div>
-
-            {/* Right Image */}
-            <div className=" max-w-xs sm:max-w-sm half-md::max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl mx-auto">
-              <img
-                src="https://learnatadistance.files.wordpress.com/2020/08/external-content.duckduckgo.com_.png"
-                alt="Course preview"
-                className="w-20 h-20 half-md:w-auto half-md:h-48 rounded-md object-cover"
-              />
-            </div>
-          </div>
-          {/* card 6 */}
-          <div className="flex flex-row half-md:flex-col-reverse border rounded-lg p-4 bg-white shadow-sm  w-full max-w-3xl">
-            {/* Left Content */}
-            <div className="flex flex-col space-y-2 flex-1">
-              {/* Free Trial Badge */}
-              <span className="border border-black text-xs font-semibold rounded-full py-0.5 px-2 w-fit">
-                Free Trial
-              </span>
-
-              {/* Logo and Provider */}
-              <div className="flex items-center space-x-2">
-                <img
-                  src="https://tse2.mm.bing.net/th/id/OIP.Bs2PlI-wmfFiYzgWNRO0pgHaDO?pid=Api&P=0&h=180"
-                  alt="IBM logo"
-                  className="w-5 h-5 object-contain"
-                />
-                <span className="text-sm font-medium text-gray-800">IBM</span>
-              </div>
-
-              {/* Course Title */}
-              <h2 className="text-base md:text-lg font-bold text-gray-900 leading-snug">
-                Introduction to Artificial Intelligence (AI)
-              </h2>
-
-              {/* Skills */}
-              <p className="text-sm text-gray-700 line-clamp-3">
-                <span className="font-semibold">Skills you will gain:</span>{" "}
-                Generative AI, ChatGPT, Natural Language Processing, Data
-                Governance, Computer Science, Business Intelligence, Business
-                Ethics, Robotic Process Automation, Content Creation, Risk
-                Mitigation
-              </p>
-
-              {/* Rating and Views */}
-              <div className="flex items-center space-x-2 text-sm text-gray-700">
-                <div className="flex items-center space-x-1">
-                  <FiStar className="text-yellow-500" />
-                  <span className="font-semibold">4.7</span>
-                </div>
-                <span className="text-gray-400">•</span>
-                <span>20K views</span>
-              </div>
-
-              {/* Course Meta */}
-              <div className="flex items-center space-x-2 text-sm text-gray-600">
-                <span className="font-medium">Beginner</span>
-                <span className="text-gray-400">•</span>
-                <span>Course</span>
-                <span className="text-gray-400">•</span>
-                <span>1–4 Weeks</span>
-              </div>
-            </div>
-
-            {/* Right Image */}
-            <div className=" max-w-xs sm:max-w-sm half-md::max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl mx-auto">
-              <img
-                src="https://learnatadistance.files.wordpress.com/2020/08/external-content.duckduckgo.com_.png"
-                alt="Course preview"
-                className="w-20 h-20 half-md:w-auto half-md:h-48 rounded-md object-cover"
-              />
-            </div>
+            ))}
           </div>
         </div>
       </div>

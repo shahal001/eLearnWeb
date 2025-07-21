@@ -12,6 +12,9 @@ export default {
         rubik: ['"Rubik"', "sans-serif"],
         lato: ['"Lato"', "sans-serif"],
       },
+      screens: {
+        "half-md": "600px",
+      },
     },
   },
   plugins: [],

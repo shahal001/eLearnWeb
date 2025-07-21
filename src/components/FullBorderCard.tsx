@@ -1,6 +1,7 @@
 import { IoIosStar } from "react-icons/io";
 
 interface FullBorderCardProps {
+  id: string;
   image: string;
   heading: string;
   rating: string;

@@ -1,15 +1,49 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import signupimg from "../assets/images/signupimg.png";
 import googleIcon from "../assets/images/google.png";
 import logo from "../assets/images/logoOfAcdmx.png";
-
 const Signup: React.FC = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setMessage("");
+    setMessage("");
+
+    try {
+      const res = await fetch("http://localhost:4000/api/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, createPassword: password }),
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        setMessage("Signup successful! You can now log in.");
+        setName("");
+        setEmail("");
+        setPassword("");
+      } else {
+        setMessage(data.message || "Signup failed.");
+      }
+      navigate("/login");
+    } catch (err) {
+      setMessage("Network error. Please try again.");
+    }
+  };
+
   return (
     <div className="flex h-screen w-screen items-center justify-center bg-gradient-to-r from-gray-200 to-blue-100">
       <div className="flex flex-col md:flex-row w-full md:w-3/4 h-full md:h-[85%] rounded-3xl shadow-lg overflow-hidden">
         {/* Left Side: Signup Form */}
         <div className="flex-1 flex flex-col items-center justify-center p-6 md:p-8 bg-white">
-          {/* Logo Image */}
+          {/* Logo */}
           <div className="mb-6">
             <img
               src={logo}
@@ -18,7 +52,7 @@ const Signup: React.FC = () => {
             />
           </div>
 
-          {/* Welcome Message */}
+          {/* Welcome Text */}
           <h2 className="text-xl md:text-2xl font-bold mb-2 text-gray-800">
             Create Your Account
           </h2>
@@ -27,8 +61,14 @@ const Signup: React.FC = () => {
           </p>
 
           {/* Signup Form */}
-          <form className="w-full max-w-xs">
-            {/* Name Field */}
+          <form className="w-full max-w-xs" onSubmit={handleSubmit}>
+            {message && (
+              <div className="mb-4 text-center text-sm font-semibold text-red-500">
+                {message}
+              </div>
+            )}
+
+            {/* Name */}
             <div className="mb-4">
               <label
                 htmlFor="name"
@@ -39,6 +79,8 @@ const Signup: React.FC = () => {
               <input
                 id="name"
                 type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 placeholder="Enter your name"
                 required
                 autoComplete="name"
@@ -46,7 +88,7 @@ const Signup: React.FC = () => {
               />
             </div>
 
-            {/* Email Field */}
+            {/* Email */}
             <div className="mb-4">
               <label
                 htmlFor="email"
@@ -57,6 +99,8 @@ const Signup: React.FC = () => {
               <input
                 id="email"
                 type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email"
                 required
                 autoComplete="email"
@@ -64,7 +108,7 @@ const Signup: React.FC = () => {
               />
             </div>
 
-            {/* Password Field */}
+            {/* Password */}
             <div className="mb-4">
               <label
                 htmlFor="password"
@@ -75,6 +119,8 @@ const Signup: React.FC = () => {
               <input
                 id="password"
                 type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 placeholder="Enter your password"
                 required
                 autoComplete="new-password"
@@ -82,7 +128,7 @@ const Signup: React.FC = () => {
               />
             </div>
 
-            {/* Signup Button */}
+            {/* Submit Button */}
             <button
               type="submit"
               className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
@@ -97,7 +143,7 @@ const Signup: React.FC = () => {
               <hr className="flex-grow border-gray-300" />
             </div>
 
-            {/* Google Signup Button */}
+            {/* Google Signup */}
             <button
               type="button"
               className="w-full flex items-center justify-center gap-2 border border-gray-300 rounded py-2 px-4 text-gray-700 font-semibold hover:bg-gray-100 transition"
@@ -119,7 +165,7 @@ const Signup: React.FC = () => {
           </form>
         </div>
 
-        {/* Right Side: Illustration and Message */}
+        {/* Right Side Illustration */}
         <div className="hidden md:flex flex-1 flex-col items-center justify-center p-4 bg-green-100">
           <img
             src={signupimg}

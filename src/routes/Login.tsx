@@ -2,16 +2,37 @@ import React, { useState } from "react";
 import loginImage from "../assets/images/studentIMage.png";
 import googleIcon from "../assets/images/google.png";
 import logo from "../assets/images/logoOfAcdmx.png";
+import { useNavigate } from "react-router-dom";
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
+  const navigate = useNavigate();
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log("Email:", email);
-    console.log("Password:", password);
-    // TODO: Add authentication logic here
+    setMessage("");
+    try {
+      const res = await fetch("http://localhost:4000/api/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        setMessage("");
+        setEmail("");
+        setPassword("");
+        // You can redirect to dashboard or home after successful login
+        navigate("/");
+      } else {
+        setMessage(data.message || "Login failed.");
+      }
+    } catch (error) {
+      setMessage("Network error. Please try again.");
+      console.error("Login error:", error);
+    }
   };
 
   return (
@@ -54,6 +75,11 @@ const Login: React.FC = () => {
 
           {/* Login Form */}
           <form onSubmit={handleSubmit} className="w-full max-w-xs">
+            {message && (
+              <div className="mb-4 text-center text-sm font-semibold text-red-500">
+                {message}
+              </div>
+            )}
             {/* Email Field */}
             <div className="mb-4">
               <label

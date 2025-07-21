@@ -5,6 +5,7 @@ import Login from "./routes/Login";
 import Signup from "./routes/Signup";
 import CourseDetail from "./routes/CourseDetail";
 import Search from "./routes/Search";
+import AdminDashBoard from "./routes/Admin/AdminDashBoard";
 
 const App: React.FC = () => {
   return (
@@ -14,6 +15,7 @@ const App: React.FC = () => {
       <Route path="/signup" element={<Signup />} />
       <Route path="/courseDetail" element={<CourseDetail />} />
       <Route path="/search" element={<Search />} />
+      <Route path="/admin" element={<AdminDashBoard />} />
     </Routes>
   );
 };

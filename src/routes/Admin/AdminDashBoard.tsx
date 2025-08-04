@@ -9,6 +9,7 @@ import {
   Legend,
 } from "recharts";
 import { FaBook, FaUserGraduate, FaUserCheck, FaPlus, FaBroadcastTower } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const data = [
   { name: "Jan", value: 580 },
@@ -19,6 +20,7 @@ const data = [
 ];
 
 const Admin = () => {
+  const navigate = useNavigate();
   return (
     <div className="min-h-screen bg-gray-50 flex">
       {/* Sidebar */}
@@ -44,7 +46,6 @@ const Admin = () => {
         {/* Header */}
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-3xl font-semibold">Dashboard</h1>
-         
         </div>
 
         {/* Stats */}
@@ -62,7 +63,7 @@ const Admin = () => {
               icon: <FaUserGraduate className="text-green-500 text-xl" />,
               color: "text-green-600",
             },
-             {
+            {
               title: "Revenue",
               value: 5120,
               icon: <FaUserGraduate className="text-yellow-500 text-xl" />,
@@ -103,16 +104,8 @@ const Admin = () => {
               <LineChart data={data}>
                 <defs>
                   <linearGradient id="colorLine" x1="0" y1="0" x2="0" y2="1">
-                    <stop
-                      offset="0%"
-                      stopColor="#22c55e"
-                      stopOpacity={0.8}
-                    />
-                    <stop
-                      offset="100%"
-                      stopColor="#22c55e"
-                      stopOpacity={0.2}
-                    />
+                    <stop offset="0%" stopColor="#22c55e" stopOpacity={0.8} />
+                    <stop offset="100%" stopColor="#22c55e" stopOpacity={0.2} />
                   </linearGradient>
                 </defs>
                 <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
@@ -121,10 +114,7 @@ const Admin = () => {
                   stroke="#4b5563"
                   tick={{ fontSize: 12 }}
                 />
-                <YAxis
-                  stroke="#4b5563"
-                  tick={{ fontSize: 12 }}
-                />
+                <YAxis stroke="#4b5563" tick={{ fontSize: 12 }} />
                 <Tooltip
                   contentStyle={{
                     backgroundColor: "#fff",
@@ -156,21 +146,25 @@ const Admin = () => {
                   title: "Add Course",
                   icon: <FaPlus className="text-blue-500" />,
                   value: "Add a new course to your catalog",
+                  route: "/admin/addNewCourse",
                 },
                 {
                   title: "Go Live",
                   icon: <FaBroadcastTower className="text-green-500" />,
                   value: "Launch live webinar or session",
+                  route: "/",
                 },
                 {
                   title: "All Courses",
                   icon: <FaBroadcastTower className="text-red-500" />,
                   value: "Launch live webinar or session",
+                  route: "/",
                 },
               ].map((action, i) => (
                 <div
                   key={i}
                   className="flex items-start space-x-4 p-4 rounded-lg border hover:shadow transition"
+                  onClick={() => navigate(action.route)}
                 >
                   <div className="text-2xl">{action.icon}</div>
                   <div>

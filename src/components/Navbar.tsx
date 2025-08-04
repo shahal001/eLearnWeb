@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import logo from "../assets/images/logoOfAcdmx.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar: React.FC = () => {
+  const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const toggleModal = () => {
@@ -42,6 +43,12 @@ const Navbar: React.FC = () => {
             className="text-gray-700 hover:text-blue-600 font-medium"
           >
             About
+          </Link>
+          <Link
+            to="/admin"
+            className="text-gray-700 hover:text-blue-600 font-medium"
+          >
+            Admin
           </Link>
           <Link
             to="/"
@@ -115,6 +122,12 @@ const Navbar: React.FC = () => {
                 </li>
                 <li className="text-gray-700 hover:text-blue-500 cursor-pointer">
                   Contact
+                </li>
+                <li
+                  className="text-gray-700 hover:text-blue-500 cursor-pointer"
+                  onClick={() => navigate("/admin")}
+                >
+                  Admin
                 </li>
               </ul>
               <div className="mt-auto flex flex-col gap-2">

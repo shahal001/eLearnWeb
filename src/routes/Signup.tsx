@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import signupimg from "../assets/images/signupimg.png";
 import googleIcon from "../assets/images/google.png";
 import logo from "../assets/images/logoOfAcdmx.png";
+import axios from "axios";
+
 const Signup: React.FC = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -13,28 +15,32 @@ const Signup: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setMessage("");
-    setMessage("");
 
     try {
-      const res = await fetch("http://localhost:4000/api/register", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, createPassword: password }),
+      const response = await axios.post("http://localhost:4000/api/register", {
+        name,
+        email,
+        createPassword: password,
       });
 
-      const data = await res.json();
-
-      if (res.ok) {
+      if (response.status === 201 || response.status === 200) {
         setMessage("Signup successful! You can now log in.");
         setName("");
         setEmail("");
         setPassword("");
-      } else {
-        setMessage(data.message || "Signup failed.");
+        navigate("/login");
       }
-      navigate("/login");
-    } catch (err) {
-      setMessage("Network error. Please try again.");
+    } catch (error: any) {
+      if (error.response) {
+        // Server responded with a status other than 2xx
+        setMessage(error.response.data.message || "Signup failed.");
+      } else if (error.request) {
+        // Request was made but no response
+        setMessage("No response from server. Please try again.");
+      } else {
+        // Something else went wrong
+        setMessage("An error occurred. Please try again.");
+      }
     }
   };
 
